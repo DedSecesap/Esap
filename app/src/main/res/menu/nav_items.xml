@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/b_mp"
+        android:icon="@drawable/baseline_date_range_black_24dp"
+        android:title="@string/nav_mp" />
+    <item
+        android:id="@+id/b_pf"
+        android:icon="@drawable/baseline_person_outline_black_24dp"
+        android:title="@string/nav_pf" />
+</menu>

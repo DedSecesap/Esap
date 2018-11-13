@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_mp">My Planner</string>
+    <string name="nav_pf">Profile</string>
+    <string name="log">Login</string>
+    <string name="app_em">Email</string>
+    <string name="app_fp">Forgot Password</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
