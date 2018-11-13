@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/b_events"
+        android:icon="@drawable/baseline_date_range_black_24dp"
+        android:title="@string/nav_events" />
+
+    <item
         android:id="@+id/b_mp"
         android:icon="@drawable/baseline_date_range_black_24dp"
         android:title="@string/nav_mp" />

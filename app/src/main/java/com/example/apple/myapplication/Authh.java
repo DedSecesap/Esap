@@ -1,6 +1,7 @@
 package com.example.apple.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -11,11 +12,14 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class Authh extends AppCompatActivity {
+public class Authh extends AppCompatActivity  implements EventsFragment.OnFragmentInteractionListener
+
+{
     FrameLayout mMainFrame;
     BottomNavigationView mMainNav;
     Fragment mMPF;
     Fragment mPF;
+    Fragment mEvF;
     TextView textView;
     String name;
 
@@ -34,8 +38,11 @@ public class Authh extends AppCompatActivity {
         mMainNav = (BottomNavigationView) findViewById(R.id.bot_nav);
 
         mMPF = new MyplanerFragment();
-        setFragment(mMPF);
+
         mPF = new ProfileFragment();
+        mEvF=new EventsFragment();
+
+        setFragment(mEvF);
 
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,7 +50,8 @@ public class Authh extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                 switch (menuItem.getItemId()){
-
+                    case R.id.b_events:
+                        setFragment(mEvF);
                     case R.id.b_mp :
                         setFragment (mMPF);
                         return true;
@@ -83,4 +91,8 @@ public class Authh extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
