@@ -1,6 +1,7 @@
 package com.example.apple.myapplication;
 
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -36,10 +37,16 @@ public class MyplanerFragment extends Fragment implements MonthLoader.MonthChang
     WeekView mWeekView;
     Canvas canvas;
     List<CalendarEvent> eventList;
-
+    EventClickListener eventClickListener;
 
     public MyplanerFragment() {
         // Required empty public constructor
+    }
+    public interface EventClickListener{
+            public void EventClicked();
+}
+    public void setEventClickListener(EventClickListener eventClickListener) {
+        this.eventClickListener = eventClickListener;
     }
 
 
@@ -47,16 +54,17 @@ public class MyplanerFragment extends Fragment implements MonthLoader.MonthChang
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Path mPath=null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-           // canvas.clipOutPath(mPath);
-        } else {
-            canvas.clipPath(mPath, Region.Op.INTERSECT);
-        }
+//        Path mPath=null;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//           // canvas.clipOutPath(mPath);
+//        } else {
+//            canvas.clipPath(mPath, Region.Op.INTERSECT);
+//        }
 
 
         View view = inflater.inflate(R.layout.fragment_myplaner, container, false);
         // Get a reference for the week view in the layout.
+
          mWeekView= (WeekView) view.findViewById(R.id.weekView);
 
 // Set an action when any event is clicked.
@@ -81,8 +89,6 @@ public class MyplanerFragment extends Fragment implements MonthLoader.MonthChang
 
         return view;
     }
-
-
 
 
     public List<WeekViewDisplayable> getEvents(int newYear, int newMonth) {
@@ -337,11 +343,13 @@ public class MyplanerFragment extends Fragment implements MonthLoader.MonthChang
     @Override
     public void onEventClick(WeekViewEvent event, RectF eventRect) {
         Toast.makeText(getContext(), "Clicked " + event.getName(), Toast.LENGTH_SHORT).show();
+        eventClickListener.EventClicked();
     }
 
     @Override
     public void onEventLongPress(WeekViewEvent event, RectF eventRect) {
         Toast.makeText(getContext(), "Long pressed event: " + event.getName(), Toast.LENGTH_SHORT).show();
+
     }
 
 
