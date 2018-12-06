@@ -45,26 +45,19 @@ public class ProfileFragment extends Fragment {
         //View view1=view.findViewById(R.id.view);
         textView=(TextView)view.findViewById(R.id.textView);
         textView2=(TextView)view.findViewById(R.id.textView2);
-        textView3=(TextView)view.findViewById(R.id.textView3);
-        textView4=(TextView)view.findViewById(R.id.textView4);
-        edit=(Button)view.findViewById(R.id.button2);
+        textView3=(TextView)view.findViewById(R.id.textViewBranch);
+        textView4=(TextView)view.findViewById(R.id.textViewYear);
+
         String name="Shambhav";
         String College="IIT-BHU";
         String Year="17035041";
-        String Dept="\n Part 2 \n Ceramic \n Engineering";
+        String Dept=" Part 2 Ceramic  Engineering";
         textView.setText(name);
         textView2.setText(College);
         textView3.setText(Year);
         textView4.setText(Dept);
-
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
         return view;
+
     }
 
 

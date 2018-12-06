@@ -17,7 +17,9 @@
         android:background="@color/colorPrimary"
         app:itemIconTint="@color/nav_items_colors"
         app:itemTextColor="@color/nav_items_colors"
-        app:menu="@menu/nav_items"></android.support.design.widget.BottomNavigationView>
+        app:menu="@menu/nav_items">
+
+    </android.support.design.widget.BottomNavigationView>
 
     <TextView
         android:layout_width="match_parent"

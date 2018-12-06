@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
 
-                    Intent i=new Intent(MainActivity.this,Authh.class);
+                    Intent i=new Intent(MainActivity.this,Main2Activity.class);
                     i.putExtra("name",firebaseAuth.getCurrentUser().getDisplayName());
 
                     startActivity(i);

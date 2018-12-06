@@ -32,7 +32,7 @@ import java.util.Locale;
  * A simple {@link Fragment} subclass.
  */
 public class MyplanerFragment extends Fragment implements MonthLoader.MonthChangeListener, WeekView.EventClickListener, WeekView.EventLongPressListener {
-    AgendaCalendarView mAgendaCalendarView;
+
     WeekView mWeekView;
     Canvas canvas;
     List<CalendarEvent> eventList;
@@ -51,15 +51,14 @@ public class MyplanerFragment extends Fragment implements MonthLoader.MonthChang
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
            // canvas.clipOutPath(mPath);
         } else {
-            canvas.clipPath(mPath, Region.Op.INTERSECT);
+           // canvas.clipPath(mPath, Region.Op.INTERSECT);
         }
 
 
         View view = inflater.inflate(R.layout.fragment_myplaner, container, false);
         // Get a reference for the week view in the layout.
          mWeekView= (WeekView) view.findViewById(R.id.weekView);
-
-// Set an action when any event is clicked.
+        // Set an action when any event is clicked.
         mWeekView.setOnEventClickListener(this);
 
 // The week view has infinite scrolling horizontally. We have to provide the events of a
