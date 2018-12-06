@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mRef = new Firebase("https://first-app-38588.firebaseio.com/");
         btn_login = (Button) findViewById(R.id.btn_login);
+//        Intent i=new Intent(MainActivity.this,Authh.class);
+//        startActivity(i);
 
 
         mAuthlistener = new FirebaseAuth.AuthStateListener() {

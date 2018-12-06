@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:agendaCalendar="http://schemas.android.com/apk/res-auto"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MyplanerFragment">
 
@@ -27,8 +27,11 @@
         app:headerRowPadding="12dp"
         app:columnGap="8dp"
         app:noOfVisibleDays="1"
+
         app:dayBackgroundColor="#05000000"
         app:todayBackgroundColor="#1848adff"
         app:headerColumnBackground="#ffffffff"
          />
+
+
 </FrameLayout>

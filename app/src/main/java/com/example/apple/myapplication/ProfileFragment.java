@@ -1,6 +1,7 @@
 package com.example.apple.myapplication;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -35,14 +36,15 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment'
-        name=getArguments().getString("name");
-        Log.e("TAG",name);
+//        name=getArguments().getString("name");
+//        Log.e("TAG",name);
         View view;
 
        // textView=(TextView) this.getView().findViewById(R.id.textView34);
 
         view=inflater.inflate(R.layout.fragment_profile, container, false);
         //View view1=view.findViewById(R.id.view);
+
         textView=(TextView)view.findViewById(R.id.textView);
         textView2=(TextView)view.findViewById(R.id.textView2);
         textView3=(TextView)view.findViewById(R.id.textViewBranch);
