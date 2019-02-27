@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
 
-                    Intent i=new Intent(MainActivity.this,Authh.class);
+                    Intent i=new Intent(MainActivity.this,OpeningActivity.class);
                     i.putExtra("name",firebaseAuth.getCurrentUser().getDisplayName());
 
                     startActivity(i);

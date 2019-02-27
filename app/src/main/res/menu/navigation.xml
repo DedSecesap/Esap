@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_college"
+        android:icon="@drawable/noun_college_1610717"
+        android:title="College" />
+
+    <item
+        android:id="@+id/navigation_academic"
+        android:icon="@drawable/noun_academic_cap_1918299"
+        android:title="Academics" />
+
+    <item
+        android:id="@+id/navigation_messages"
+        android:icon="@drawable/noun_mail_box_1421792"
+        android:title="Mailbox" />
+    <item
+        android:id="@+id/navigation_users"
+        android:icon="@drawable/users"
+        android:title="Users" />
+
+</menu>

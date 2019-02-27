@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent">
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#80000000"
+    android:layout_height="match_parent"
+    tools:context=".SendLetterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+   <TextView
+       android:layout_width="wrap_content"
+       android:textSize="25sp"
+       android:textColor="#FFF"
+       android:layout_height="wrap_content"
+       android:text="TO "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#ab1014"
+            android:layout_height="wrap_content"
+            android:text="  (min 5) "/>
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/profile_not_select"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/sending_complaint_box"
+            android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOSA"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+           />
+
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_height="50dp"
+
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="25dp"
+
+                android:src="@drawable/line_separator"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="#BDBDBD"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/close"
+                />
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="+"
+            android:textColor="#FFF"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="14dp"
+            android:textSize="32sp"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject"
+        android:layout_gravity="top"
+        android:layout_marginTop="125dp"
+        android:textSize="25sp"
+        android:textColor="#FFF"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/profile_not_select"
+        android:layout_height="80dp">
+
+    </EditText>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/line_separator_yellow"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4F4F4F"
+        android:layout_height="160dp">
+
+    </EditText>
+
+        <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="max 600 words only"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginEnd="10dp"
+        android:gravity="end"
+        android:layout_height="wrap_content">
+
+    <FrameLayout
+            android:layout_width="wrap_content"
+        android:layout_marginEnd="30dp"
+            android:background="@drawable/attach_background"
+            android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pin_symbol"
+
+            android:layout_gravity="center"/>
+    </FrameLayout>
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:background="@drawable/white_oval"
+    android:layout_marginBottom="20dp"
+    android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="SEND"
+            android:textColor="#DB4067"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+</FrameLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
+</FrameLayout>
+</ScrollView>

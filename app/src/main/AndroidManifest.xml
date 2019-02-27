@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.apple.myapplication">
-<uses-permission android:name="android.permission.INTERNET">
 
-</uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".Fireapp"
         android:allowBackup="true"
@@ -24,8 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Authh"
-            android:configChanges="keyboardHidden"/>
+        <activity
+            android:name=".Authh"
+            android:configChanges="keyboardHidden" />
+        <activity
+            android:name=".PlannerActivity"
+            android:label="@string/title_activity_planner"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".OpeningActivity"
+            android:label="@string/title_activity_opening" />
+        <activity android:name=".InGeneralAcademicActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

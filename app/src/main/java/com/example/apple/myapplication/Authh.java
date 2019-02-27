@@ -71,26 +71,10 @@ public class Authh extends AppCompatActivity  implements EventsFragment.OnFragme
                         setFragment(fragment);
                         return true;
 
-                    case R.id.more:
-                        PopupMenu popup = new PopupMenu(Authh.this, findViewById(R.id.more));
-                        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-                        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem item) {
-                                Toast.makeText(Authh.this, "You clicked :" + item.getTitle(), Toast.LENGTH_SHORT).show();
-                                return false;
-                            }
-                        });
-                        popup.show();
-                        break;
-
-
-
                     default:
                         return false;
 
                 }
-                return false;
             }
 
 

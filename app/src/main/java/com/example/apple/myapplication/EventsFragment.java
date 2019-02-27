@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,8 +23,8 @@ import android.view.ViewGroup;
  */
 public class EventsFragment extends Fragment {
 
-
-
+    GraphView bar_Graph;
+    String type;
     private OnFragmentInteractionListener mListener;
 
     public EventsFragment() {
@@ -35,11 +38,14 @@ public class EventsFragment extends Fragment {
         return fragment;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
         }
     }
 
@@ -52,7 +58,36 @@ public class EventsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        return inflater.inflate(R.layout.fragment_events, container, false);
+        View view=inflater.inflate(R.layout.fragment_events, container, false);
+        bar_Graph = (GraphView) view.findViewById(R.id.line_graph);
+        LineGraphSeries<DataPoint> barGraph_Data = null;
+        DataPoint[] dataPoint;
+        int i=0;
+        dataPoint = ((new DataPoint[3]));
+        if(type.contains("CP"))
+        {
+
+        dataPoint[0] = new DataPoint(1, 8.2);
+
+        dataPoint[1] = new DataPoint(2,8.06);
+        dataPoint[2] = new DataPoint(3,8.01);
+
+        }
+        else
+        {
+
+
+            dataPoint[0] = new DataPoint(1, 8.2);
+
+            dataPoint[1] = new DataPoint(2,7.93);
+            dataPoint[2] = new DataPoint(3,7.90);
+            barGraph_Data = new LineGraphSeries<>(dataPoint);
+            bar_Graph.addSeries(barGraph_Data);
+        }
+        barGraph_Data = new LineGraphSeries<>(dataPoint);
+        bar_Graph.addSeries(barGraph_Data);
+
+        return view;
     }
 
     @Override

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#4F4F4F"
+    android:layout_height="match_parent"
+    tools:context=".InGeneralAcademicActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_session"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:theme="@style/appbar_main">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/session_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:background="#4F4F4F"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="snap"
+                app:popupTheme="@style/PopupOverlay" />
+
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/menu_header"
+                layout="@layout/waiter_appbar_orders" />
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="25dp"
+                android:id="@+id/drawer_open"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_home_black_24dp"/>
+
+
+
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+</LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/root_view"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4F4F4F">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabTextColor="#FBFA09"
+                app:tabSelectedTextColor="#fff"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:layout_marginTop="?attr/actionBarSize"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/viewpager_on_click"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+        </android.support.v4.view.ViewPager>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:layout_marginTop="15dp"
+        android:id="@+id/search_fragment_placeholder">
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="This Month"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="67dp"
+        android:id="@+id/month_text"
+        android:textSize="25sp"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/imageview_In_general"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:id="@+id/holiday_table"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="67dp"
+
+        android:background="#FBFA09"
+        android:layout_height="wrap_content">
+
+        <TableRow
+        android:layout_width="match_parent"
+           android:padding="1dp"
+        android:layout_height="match_parent" >
+        <TextView
+            android:text="      DATE       "
+            android:textSize="25sp"
+            android:background="#4F4F4F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"/>
+
+        <TextView
+            android:text="        OCCASIONS        "
+            android:textSize="25sp"
+            android:layout_marginStart="3dp"
+            android:padding="1dp"
+            android:background="#4F4F4F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"/>
+
+
+    </TableRow>
+    </TableLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/button_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/white_oval"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#DB4067"
+                android:id="@+id/additem1"
+                android:textSize="20sp"
+                android:text="ADD ITEM  +"
+                />
+
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:background="@drawable/white_oval"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:textColor="#DB4067"
+                android:textSize="20sp"
+                android:text="OLDER"
+                />
+
+
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/white_curved_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/add_item_frame"
+        android:layout_marginStart="15dp"
+
+        android:layout_marginEnd="15dp"
+        android:layout_height="400dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/data_entry_bos"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="29/12/1999"
+                android:textColor="#FFF"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/noun_calendar_2080608"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="15dp"
+                android:layout_height="wrap_content" />
+
+
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="When"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="110dp"
+            android:layout_marginStart="25dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/data_entry_bos"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="150dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="07:50 pm"
+                android:textColor="#FFF"
+                />
+
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Description and place"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="25dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/data_entry_bos"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="230dp"
+            android:layout_height="100dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="Library"
+                android:textColor="#FFF"
+                />
+
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_item_button"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/additem2"
+            android:layout_gravity="end|bottom"/>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

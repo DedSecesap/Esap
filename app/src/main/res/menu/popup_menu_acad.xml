@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+
+        android:id="@+id/one"
+        android:actionLayout="@layout/cart_update_count"
+        app:showAsAction="always"
+        android:title="Profs"/>
+
+    <item
+        android:id="@+id/two"
+        android:title="Clubs"/>
+    <item
+        android:id="@+id/three"
+        android:title="Courses"/>
+    <item
+        android:id="@+id/four"
+        android:title="All Students"/>
+    <item
+        android:id="@+id/five"
+        android:title="College Fests"/>
+    <item
+        android:id="@+id/six"
+        android:title="Holidays"/>
+    <item
+        android:id="@+id/seven"
+        android:title="Events"/>
+
+</menu>

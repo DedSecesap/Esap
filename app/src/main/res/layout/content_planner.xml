@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4F4F4F"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".PlannerActivity"
+    tools:showIn="@layout/activity_planner"   >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#4F4F4F"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders" />
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/drawer_open"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_home_black_24dp"/>
+
+
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/root_view"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4F4F4F">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabTextColor="#FBFA09"
+                app:tabSelectedTextColor="#fff"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"/>
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.view.ViewPager
+            android:layout_marginTop="?attr/actionBarSize"
+            android:id="@+id/viewpager_on_click"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <android.support.v4.view.PagerTitleStrip
+                android:id="@+id/pager_title_strip"
+                android:layout_width="match_parent"
+                android:textColor="#FBFA09"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:textStyle="bold" />
+        </android.support.v4.view.ViewPager>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:id="@+id/search_fragment_placeholder">
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:background="@drawable/add_event_rectangle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/add_event_frame"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/sending_complaint_box"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="29/12/1993344"
+                android:textColor="#FFF"
+                />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="25dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/sending_complaint_box"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="130dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="29/12/1999"
+                android:textColor="#FFF"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/noun_calendar_2080608"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="15dp"
+                android:layout_height="wrap_content" />
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:background="@drawable/sending_complaint_box"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="50dp"
+
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="25dp"
+
+                    android:src="@drawable/line_separator"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/up_arrow"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:src="@drawable/down_arrow"
+                    />
+
+            </FrameLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TO"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:textSize="20sp"/>
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:background="@drawable/sending_complaint_box"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="50dp"
+
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="25dp"
+
+                    android:src="@drawable/line_separator"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/up_arrow"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:src="@drawable/down_arrow"
+                    />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/sending_complaint_box"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="35dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="100dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:text="29/12/1999"
+                android:textColor="#FFF"
+                />
+
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/add_event_button"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/add_event_button_2"/>
+
+    </FrameLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
