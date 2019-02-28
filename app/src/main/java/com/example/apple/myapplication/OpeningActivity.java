@@ -26,6 +26,7 @@ public class OpeningActivity extends AppCompatActivity {
     List<TodayModel> classes= new ArrayList<>();
     TodayAdapter todayAdapter;
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
