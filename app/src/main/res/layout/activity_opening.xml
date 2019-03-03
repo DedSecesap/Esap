@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/button_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:background="@drawable/opening_top_rectangle">
 
 
@@ -61,6 +61,15 @@
                 android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:width="40px"
+                android:gravity="center"
+                style="@style/Today"
+                android:text="Happenings in college"
+                android:textSize="17sp"
+                android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/events_recy"

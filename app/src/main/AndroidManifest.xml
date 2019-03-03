@@ -8,9 +8,9 @@
     <application
         android:name=".Fireapp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/cdi_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/cdi_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
@@ -35,7 +35,11 @@
             android:name=".OpeningActivity"
             android:label="@string/title_activity_opening" />
         <activity android:name=".InGeneralAcademicActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CourseInfoActivity"
+            android:label="Course Info">
+
+        </activity>
     </application>
 
 </manifest>
