@@ -222,12 +222,12 @@ public class OpeningActivity extends AppCompatActivity {
         classes.add(new TodayModel("LT2","11:00-12:00","MSC308"));
         todayAdapter=new TodayAdapter(classes);
         dailyRecy.setAdapter(todayAdapter);
-        RecyclerView eventRecy=findViewById(R.id.events_recy);
-        LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
-        eventRecy.setLayoutManager(llm1);
-        events.add(new EventModel("xyz","xyz","xyz","xyz","xzy","xyz",R.drawable.white_curved_rectangle));
-        eventAdapter=new EventAdapter(events);
-        eventRecy.setAdapter(eventAdapter);
+//        RecyclerView eventRecy=findViewById(R.id.events_recy);
+//        LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+//        eventRecy.setLayoutManager(llm1);
+//        events.add(new EventModel("xyz","xyz","xyz","xyz","xzy","xyz",R.drawable.white_curved_rectangle));
+//        eventAdapter=new EventAdapter(events);
+//        eventRecy.setAdapter(eventAdapter);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
