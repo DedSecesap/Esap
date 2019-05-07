@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         username1 = (EditText)findViewById(R.id.Email);
         pasword1 = (EditText) findViewById(R.id.password);
-        mAuth = FirebaseAuth.getInstance();
         mRef = new Firebase("https://first-app-38588.firebaseio.com/");
         btn_login = (Button) findViewById(R.id.btn_login);
 //        Intent i=new Intent(MainActivity.this,Authh.class);

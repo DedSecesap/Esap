@@ -5,12 +5,12 @@
 
         android:id="@+id/one"
         android:actionLayout="@layout/cart_update_count"
-        app:showAsAction="always"
-        android:title="Profs"/>
+        android:title="Professors"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/two"
-        android:title="Clubs"/>
+        android:title="Councils" />
     <item
         android:id="@+id/three"
         android:title="Courses"/>

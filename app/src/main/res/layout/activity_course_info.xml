@@ -84,9 +84,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/syllabus_fram"
+        android:id="@+id/syllabus_frame"
         app:layout_constraintTop_toBottomOf="@id/textView10"
-        android:background="@drawable/today_item_recy_backgroung"
         android:layout_height="wrap_content">
 
         <TextView
@@ -97,13 +96,13 @@
             android:id="@+id/syllabus_textview"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Short Syllabus"/>
+            android:text="About"/>
 
     </FrameLayout>
 
 <TextView
     android:layout_width="match_parent"
-    app:layout_constraintTop_toBottomOf="@id/syllabus_fram"
+    app:layout_constraintTop_toBottomOf="@id/syllabus_frame"
     android:text="Professors"
     android:textSize="25sp"
     android:id="@+id/professors_text"

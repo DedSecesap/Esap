@@ -113,11 +113,11 @@
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:background="@drawable/add_event_rectangle"
+        android:background="@drawable/white_curve_rectangle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/add_event_frame"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content">
@@ -132,11 +132,13 @@
             android:layout_marginStart="25dp"/>
         <FrameLayout
             android:layout_width="match_parent"
-            android:background="@drawable/sending_complaint_box"
+            android:background="@drawable/to_fill_textbox"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="50dp"
-            android:layout_height="wrap_content">
+            android:layout_height="45dp">
+
+
 
             <EditText
                 android:layout_width="wrap_content"
@@ -161,11 +163,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:background="@drawable/sending_complaint_box"
+            android:background="@drawable/to_fill_textbox"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="130dp"
-            android:layout_height="wrap_content">
+            android:layout_height="45dp">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -195,8 +197,8 @@
 
             <FrameLayout
                 android:layout_width="100dp"
-                android:background="@drawable/sending_complaint_box"
-                android:layout_height="wrap_content"
+                android:background="@drawable/to_fill_textbox"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 >
                 <ImageView
@@ -239,9 +241,9 @@
 
             <FrameLayout
                 android:layout_width="100dp"
-                android:background="@drawable/sending_complaint_box"
+                android:background="@drawable/to_fill_textbox"
                 android:layout_marginStart="20dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 >
                 <ImageView
@@ -277,7 +279,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:background="@drawable/sending_complaint_box"
+            android:background="@drawable/to_fill_textbox"
             android:layout_marginStart="20dp"
             android:layout_gravity="bottom"
             android:layout_marginBottom="35dp"
