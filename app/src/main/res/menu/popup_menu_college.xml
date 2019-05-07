@@ -4,7 +4,7 @@
     <item
 
         android:id="@+id/one"
-        android:title="My Students"/>
+        android:title="Attendance" />
 
     <item
         android:id="@+id/two"
