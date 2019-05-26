@@ -16,24 +16,24 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link EventsFragment.OnFragmentInteractionListener} interface
+ * {@link GradesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EventsFragment#newInstance} factory method to
+ * Use the {@link GradesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventsFragment extends Fragment {
+public class GradesFragment extends Fragment {
 
     GraphView bar_Graph;
     String type;
     private OnFragmentInteractionListener mListener;
 
-    public EventsFragment() {
+    public GradesFragment() {
         // Required empty public constructor
     }
 
 
-    public static EventsFragment newInstance(String param1, String param2) {
-        EventsFragment fragment = new EventsFragment();
+    public static GradesFragment newInstance(String param1, String param2) {
+        GradesFragment fragment = new GradesFragment();
 
         return fragment;
     }

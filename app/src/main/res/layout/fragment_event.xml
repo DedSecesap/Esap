@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#4F4F4F"
+    tools:context=".EventFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.052083332" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9557292" />
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:backgroundTint="#4f4f4f"
+            android:tintMode="src_in"
+            android:background="@drawable/events_img"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/clubName"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+
+            app:srcCompat="@drawable/events_img" />
+
+        <TextView
+
+            android:id="@+id/static_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Members"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageView"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="81dp" />
+        <TextView
+            android:id="@+id/textView"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:background="#0f0f0d"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/static_text"
+            app:layout_constraintBottom_toTopOf="@+id/textViewDate"
+            android:textAlignment="center"
+            android:textColor="#95f033"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="81dp" />
+        <TextView
+            android:id="@+id/textViewDate"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:background="#0f0f0d"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:textAlignment="center"
+            android:textColor="#95f033"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="234dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:text="ShortDescription"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/Achievements_Layout"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewDescr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#0f0f0d"
+                android:text="BigDescription"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Prof. in charge :"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Achievements_Layout" />
+
+        <TextView
+            android:id="@+id/prof_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Designation"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@id/Achievements_Layout"
+            android:layout_marginStart="10dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/view"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            android:orientation="vertical"
+            android:id="@+id/research_layout"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/research_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:text="Core Team"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                android:layout_gravity="center" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:id="@+id/student_list"
+                android:layout_gravity="center"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/research_layout"
+            android:orientation="vertical"
+            android:id="@+id/contact_layout"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/Contact_Textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:text="Contacts"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                android:layout_gravity="center" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:id="@+id/contact_list"
+                android:layout_gravity="center"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

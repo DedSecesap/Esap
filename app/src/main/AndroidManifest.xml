@@ -13,7 +13,6 @@
         android:roundIcon="@drawable/cdi_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
@@ -37,10 +36,11 @@
             android:label="@string/title_activity_opening" />
         <activity android:name=".InGeneralAcademicActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".CourseInfoActivity"
-            android:label="Course Info">
-
-        </activity>
+        <activity
+            android:name=".CourseInfoActivity"
+            android:label="Course Info" />
+        <activity android:name=".ProfessorActivity" />
+        <activity android:name=".ClubActivity"></activity>
     </application>
 
 </manifest>

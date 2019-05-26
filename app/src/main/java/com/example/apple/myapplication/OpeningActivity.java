@@ -16,9 +16,20 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OpeningActivity extends AppCompatActivity {
 
@@ -27,6 +38,8 @@ public class OpeningActivity extends AppCompatActivity {
     List<EventModel> events= new ArrayList<>();
     TodayAdapter todayAdapter;
     EventAdapter eventAdapter;
+    String Nameuser;
+    String data;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,11 +100,7 @@ public class OpeningActivity extends AppCompatActivity {
                                     intent.putExtra("Type",item.getTitle());
                                     startActivity(intent);
                                     break;
-                                case R.id.seven:
-                                    intent=new Intent(getApplicationContext(),InGeneralAcademicActivity.class);
-                                    intent.putExtra("Type",item.getTitle());
-                                    startActivity(intent);
-                                    break;
+
                             }
                             return true;
                         }
@@ -196,6 +205,131 @@ public class OpeningActivity extends AppCompatActivity {
 
                 case R.id.navigation_users:
                     Intent intent=new Intent(getApplicationContext(),ProfileActivity.class);
+                    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+                    String branchcode = null;
+
+                    FirebaseUser mUser=firebaseAuth.getCurrentUser();
+                    String email=mUser.getEmail();
+                    Nameuser=mUser.getDisplayName();
+
+                    String year="Year20"+email.substring(email.indexOf("@")-2,email.indexOf("@"));
+                    String dept=email.substring(email.indexOf("@")-5,email.indexOf("@")-2);
+                    if(dept.contains("bme"))
+                    {
+                        branchcode="0140";
+                    }
+                    else if(dept.contains("bce"))
+                    {
+                        branchcode="0240";
+                    }
+                    else if(dept.contains("cer"))
+                    {
+                        branchcode="0340";
+                    }
+                    else if(dept.contains("che"))
+                    {
+                        branchcode="0440";
+                    }
+                    else if(dept.contains("cse"))
+                    {
+                        branchcode="0540";
+                    }
+                    else if(dept.contains("eee"))
+                    {
+                        branchcode="0640";
+                    }
+                    else  if(dept.contains("ece"))
+                    {
+                        branchcode="0740";
+                    }else
+                    if(dept.contains("phy"))
+                    {
+                        branchcode="0840";
+                    }else
+                    if(dept.contains("chy"))
+                    {
+                        branchcode="0940";
+                    }else
+                    if(dept.contains("mst"))
+                    {
+                        branchcode="1040";
+                    }else
+                    if(dept.contains("mat"))
+                    {
+                        branchcode="1140";
+                    }else
+                    if(dept.contains("mec"))
+                    {
+                        branchcode="1240";
+                    }else
+                    if(dept.contains("met"))
+                    {
+                        branchcode="1440";
+                    }else
+                    if(dept.contains("min"))
+                    {
+                        branchcode="1540";
+                    }else
+                    if(dept.contains("phe"))
+                    {
+                        branchcode="1640";
+                    }
+                    FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+                    DatabaseReference databaseReference=firebaseDatabase.getReference();
+                    while (branchcode.charAt(2)<'6')
+                    {
+
+                        databaseReference.child("Students").child("Years").child(year).child(year.substring(6) + branchcode).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                                };
+                                Map<String, Object> objectHashMap = null;
+                                objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                                if (objectHashMap != null) {
+                                    String Name = null;
+                                    ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                                    for (Object obj : objectArrayList) {
+                                        if (!(obj.toString().contains("IDD")||obj.toString().contains("MetSoc")||obj.toString().contains("Metallurgy")||obj.toString().contains("Morvi")||obj.toString().contains("BTech"))) {
+                                            Log.e("Fragment Data", obj.toString());
+                                            if (obj.toString().indexOf(',', obj.toString().indexOf("Name")) != -1) {
+                                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Name"), obj.toString().indexOf(',', obj.toString().indexOf("Name"))));
+                                                Name = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Name") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Name")));
+                                            } else {
+                                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Name")));
+                                                Name = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                            }
+                                        }
+                                        if(Nameuser.contains(Name))
+                                        {
+                                            Nameuser=Name;
+                                            data=obj.toString();
+                                            break;
+                                        }
+                                    }
+
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                        if(branchcode.charAt(2)!='5')
+                        {
+                            branchcode=branchcode.substring(0,2)+"50";
+                            Log.e("TAG","CourseCodeChanged"+branchcode);
+                        }
+                        else
+                        {
+                            branchcode=branchcode.substring(0,2)+"70";
+                        }
+                    }
+
+                    intent.putExtra("data",data);
+                    intent.putExtra("name",Nameuser);
                     startActivity(intent);
                     return true;
             }

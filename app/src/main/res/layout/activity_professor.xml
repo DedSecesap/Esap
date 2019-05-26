@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#4F4F4F"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfessorActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -92,27 +92,37 @@
 
         <TextView
             android:id="@+id/view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="My Clubs"
+            android:text="Designation :"
             android:textSize="30sp"
             android:layout_marginTop="3dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"
+            android:layout_marginStart="10dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerTypegrid"
-            android:nestedScrollingEnabled="false"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/designation_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view"
-            android:scrollbars="vertical" />
+            android:gravity="center"
+            android:text="Designation"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            android:layout_marginStart="10dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/view"
+            />
+
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -130,7 +140,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Roll No."
+            android:text="Name"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +158,7 @@
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Name"
+            android:text="Branch"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="italic"
@@ -159,10 +169,10 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerTypegrid"
+            app:layout_constraintTop_toBottomOf="@+id/view"
             android:orientation="vertical"
 
             android:id="@+id/Achievements_Layout"
@@ -173,7 +183,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Achievements"
+                android:text="Courses"
+                android:layout_gravity="center"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -181,13 +192,17 @@
 
                 android:gravity="start" />
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:id="@+id/achievements_list"
-                android:scrollbars="vertical"
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/courses_list"
+                android:gravity="center"
+                android:background="#0f0f0d"
+                android:textColor="#95f033"
+                android:text="Courses"
+                android:textSize="20sp"
                 android:layout_height="wrap_content">
 
-            </android.support.v7.widget.RecyclerView>
+            </TextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -204,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
 
-                android:text="Projects/Research"
+                android:text="Other Responsibilites"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -215,6 +230,38 @@
             <android.support.v7.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:id="@+id/involvemts_list"
+                android:layout_gravity="center"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/Involvements_Layout"
+            android:orientation="vertical"
+            android:id="@+id/research_layout"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/research_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:text="Research"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                android:layout_gravity="center" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:id="@+id/research_list"
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content">

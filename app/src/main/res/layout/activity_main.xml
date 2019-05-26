@@ -66,15 +66,15 @@
             android:text="@string/app_fp"
             android:textColor="@color/milkwhite" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="end"
-            android:text="New Here!"
-            android:textColor="@color/milkwhite" />
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/login_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
 
 
     </LinearLayout>
 
 
-</LinearLayout>

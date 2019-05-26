@@ -1,8 +1,8 @@
 package com.example.apple.myapplication;
 
-import android.graphics.Color;
-import android.media.Image;
+import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,20 +12,34 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InGeneralAcademicActivity extends AppCompatActivity implements MechProfFragment.OnFragmentInteractionListener,
-ElectricProfFragment.OnFragmentInteractionListener,ComputerScienceProf.OnFragmentInteractionListener,SendLetterFragment.OnFragmentInteractionListener,
-EventsFragment.OnFragmentInteractionListener{
+RecyclerViewFragment.OnFragmentInteractionListener,ComputerScienceProf.OnFragmentInteractionListener,SendLetterFragment.OnFragmentInteractionListener,
+GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteractionListener{
 
     private ViewPager viewPager;
     private SectionPageAdapter sectionPageAdapter;
+    List<HolidayModel> holidayModels,finalModels=new ArrayList<>();
+    HolidayAdapter holidayAdapter;
+    RecyclerView holiday;
     private ImageView imageView;
 
     @Override
@@ -33,6 +47,7 @@ EventsFragment.OnFragmentInteractionListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_general_academic);
         imageView=findViewById(R.id.imageview_In_general);
+
         findViewById(R.id.month_text).setVisibility(View.GONE);
         findViewById(R.id.button_frame).setVisibility(View.GONE);
         findViewById(R.id.add_item_frame).setVisibility(View.GONE);
@@ -41,6 +56,7 @@ EventsFragment.OnFragmentInteractionListener{
 
         ActionBar actionBar = getSupportActionBar();
         TextView textView=findViewById(R.id.title);
+        textView.setVisibility(View.VISIBLE);
         TabLayout tabLayout =findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         String type=getIntent().getStringExtra("Type");
@@ -50,245 +66,1040 @@ EventsFragment.OnFragmentInteractionListener{
                 finish();
             }
         });
-        if(type.toLowerCase().contains("rofs")) {
-            MechProfFragment searchFragmentAll=new MechProfFragment();
-          //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(searchFragmentAll,"Mechanical");
-            textView.setText("Professors");
-            MechProfFragment searchFragmentPeople=new MechProfFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Electrical");
-
-
-            MechProfFragment searchFragmentRestaurant=new MechProfFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant,"Computer Science");
-        viewPager.setAdapter(sectionPageAdapter);
-        }
-        else if(type.toLowerCase().contains("clubs")) {
-            ProfileFragment searchFragmentAll=new ProfileFragment();
+        if(type.contains("rof")) {
+            PagerStripFragment searchFragmentbce=new PagerStripFragment();
             //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(searchFragmentAll,"Cultural Council");
+            searchFragmentbce.setName("profess");
+            searchFragmentbce.setBranch("Biochemical");
+            sectionPageAdapter.addFragment(searchFragmentbce,"Biochemical");
+            textView.setText("Professors");
+            PagerStripFragment searchFragmentbme=new PagerStripFragment();
+            searchFragmentbme.setName("profess");
+            searchFragmentbme.setBranch("Biomedical");
+
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentbme, "Biomedical");
+
+
+            PagerStripFragment searchFragmentcer=new PagerStripFragment();
+            searchFragmentcer.setName("profess");
+            searchFragmentcer.setBranch("Ceramics");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentcer,"Ceramics");
+            PagerStripFragment searchFragmentche=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentche.setName("profess");
+            searchFragmentche.setBranch("Chemical");
+            sectionPageAdapter.addFragment(searchFragmentche,"Chemical");
+            PagerStripFragment searchFragmentcse=new PagerStripFragment();
+            searchFragmentcse.setName("profess");
+            searchFragmentcse.setBranch("ComputerScience");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentcse, "Computer Science");
+
+
+            PagerStripFragment searchFragmenteee=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmenteee.setName("profess");
+            searchFragmenteee.setBranch("Electrical");
+            sectionPageAdapter.addFragment(searchFragmenteee,"Electrical");
+            PagerStripFragment searchFragmentece=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentece.setName("profess");
+            searchFragmentece.setBranch("Electronics");
+            sectionPageAdapter.addFragment(searchFragmentece,"Electronics");
+            PagerStripFragment searchFragmentphy=new PagerStripFragment();
+            searchFragmentphy.setName("profess");
+            searchFragmentphy.setBranch("Physics");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentphy, "Physics");
+
+
+            PagerStripFragment searchFragmentchy=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentchy.setName("profess");
+            searchFragmentchy.setBranch("Industrial Chemistry");
+            sectionPageAdapter.addFragment(searchFragmentchy,"Chemistry");
+            PagerStripFragment searchFragmentins=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentins.setName("profess");
+            searchFragmentins.setBranch("Humanistic Social Studies");
+            sectionPageAdapter.addFragment(searchFragmentins,"Humanistic Social Studies");
+
+            PagerStripFragment searchFragmentmst=new PagerStripFragment();
+            searchFragmentmst.setName("profess");
+            searchFragmentmst.setBranch("Material Sciences");
+
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentmst, "Material Science");
+
+
+            PagerStripFragment searchFragmentmnc=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentmnc.setName("profess");
+            searchFragmentmnc.setBranch("Mathematics & Computing");
+            sectionPageAdapter.addFragment(searchFragmentmnc,"Maths and Computing");
+            PagerStripFragment searchFragmentmec=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentmec.setName("profess");
+            searchFragmentmec.setBranch("Mechanical");
+            sectionPageAdapter.addFragment(searchFragmentmec,"Mechanical");
+            PagerStripFragment searchFragmentmet=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentmet.setName("profess");
+            searchFragmentmet.setBranch("Metallurgy");
+            sectionPageAdapter.addFragment(searchFragmentmet,"Metallurgy");
+
+            PagerStripFragment searchFragmentmin=new PagerStripFragment();
+            searchFragmentmin.setName("profess");
+            searchFragmentmin.setBranch("Mining");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentmin, "Mining");
+
+
+            PagerStripFragment searchFragmentphe=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentphe.setName("profess");
+            searchFragmentphe.setBranch("Pharmaceutics");
+            sectionPageAdapter.addFragment(searchFragmentphe,"Pharmaceutics");
+            viewPager.setAdapter(sectionPageAdapter);
+        }
+        else if(type.contains("ouncil")) {
+            PagerStripFragment searchFragmentadmin=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentadmin.setName("Major Bodies");
+            sectionPageAdapter.addFragment(searchFragmentadmin,"Major Bodies");
             textView.setText("Clubs");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
+            PagerStripFragment searchFragmentcult=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Sports Council");
+            searchFragmentcult.setName("Cultural Council");
+            sectionPageAdapter.addFragment(searchFragmentcult, "Cultural Council");
 
 
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+//            PagerStripFragment searchFragmententre=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            searchFragmententre.setName("Entrepreneurship Cell");
+//            sectionPageAdapter.addFragment(searchFragmententre,"E-Cell");
+            PagerStripFragment searchFragmentfmc=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant,"Technical Council");
+            searchFragmentfmc.setName("Film & Media Council");
+            sectionPageAdapter.addFragment(searchFragmentfmc,"Film and Media Council");
+
+
+            PagerStripFragment searchFragmentgnsc=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentgnsc.setName("General Sports Council");
+
+            sectionPageAdapter.addFragment(searchFragmentgnsc,"Games and Sports Council");
+            PagerStripFragment searchFragmentsntc=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentsntc.setName("Science & Technological Council");
+            sectionPageAdapter.addFragment(searchFragmentsntc, "Science and Technology Council");
+
+            PagerStripFragment searchFragmentssc=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentssc.setName("Social Service Council");
+            sectionPageAdapter.addFragment(searchFragmentssc,"Social Service Council");
+
+//            PagerStripFragment searchFragmentsaic=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            searchFragmentsaic.setName("Student Alumni Interaction Cell");
+//            sectionPageAdapter.addFragment(searchFragmentsaic, "Student Alumni Interaction Cell");
+
+//            PagerStripFragment searchFragmentsp=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            searchFragmentsp.setName("Student Parliament");
+//            sectionPageAdapter.addFragment(searchFragmentsp,"Student Parliament");
+
+//            PagerStripFragment searchFragmenttpc=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            searchFragmenttpc.setName("Training & Placement Cell");
+//            sectionPageAdapter.addFragment(searchFragmenttpc,"Training and Placement Cell");
+//
             viewPager.setAdapter(sectionPageAdapter);
         }
         else if(type.toLowerCase().equals("courses")){
-            ProfileFragment searchFragmentAll=new ProfileFragment();
+            PagerStripFragment searchFragmentbce=new PagerStripFragment();
             //  searchFragmentAll.set(this);
-            searchFragmentAll.setName("courses");
-            sectionPageAdapter.addFragment(searchFragmentAll,"Mechanical");
+            searchFragmentbce.setName("courses");
+            searchFragmentbce.setBranch("Biochemical Engineering");
+            sectionPageAdapter.addFragment(searchFragmentbce,"Biochemical");
             textView.setText("Courses");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
-            searchFragmentPeople.setName("courses");
+            PagerStripFragment searchFragmentbme=new PagerStripFragment();
+            searchFragmentbme.setName("courses");
+            searchFragmentbme.setBranch("Biomedical Engineering");
 
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Electrical");
+            sectionPageAdapter.addFragment(searchFragmentbme, "Biomedical");
 
 
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+            PagerStripFragment searchFragmentcer=new PagerStripFragment();
+            searchFragmentcer.setName("courses");
+            searchFragmentcer.setBranch("Ceramics");
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant,"Computer Science");
-            viewPager.setAdapter(sectionPageAdapter);
-        }
-        else if(type.toLowerCase().contains("labs")){
-            ProfileFragment searchFragmentAll=new ProfileFragment();
+            sectionPageAdapter.addFragment(searchFragmentcer,"Ceramics");
+            PagerStripFragment searchFragmentche=new PagerStripFragment();
             //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(searchFragmentAll,"Mechanical");
-            textView.setText("Labs");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
+            searchFragmentche.setName("courses");
+            searchFragmentche.setBranch("Chemical Engineering");
+            sectionPageAdapter.addFragment(searchFragmentche,"Chemical");
+            PagerStripFragment searchFragmentcse=new PagerStripFragment();
+            searchFragmentcse.setName("courses");
+            searchFragmentcse.setBranch("Computer Science & Engineering");
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Electrical");
+            sectionPageAdapter.addFragment(searchFragmentcse, "Computer Science");
 
 
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+            PagerStripFragment searchFragmenteee=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant,"Computer Science");
+            searchFragmenteee.setName("courses");
+            searchFragmenteee.setBranch("Electrical");
+            sectionPageAdapter.addFragment(searchFragmenteee,"Electrical");
+            PagerStripFragment searchFragmentece=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentece.setName("courses");
+            searchFragmentece.setBranch("Electronics Engineering");
+            sectionPageAdapter.addFragment(searchFragmentece,"Electronics");
+            PagerStripFragment searchFragmentphy=new PagerStripFragment();
+            searchFragmentphy.setName("courses");
+            searchFragmentphy.setBranch("Engineering Physics");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentphy, "Physics");
+
+
+            PagerStripFragment searchFragmentchy=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentchy.setName("courses");
+            searchFragmentchy.setBranch("Industrial Chemistry");
+            sectionPageAdapter.addFragment(searchFragmentchy,"Chemistry");
+            PagerStripFragment searchFragmentins=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentins.setName("courses");
+            searchFragmentins.setBranch("Institute Courses");
+            sectionPageAdapter.addFragment(searchFragmentins,"Institute Courses");
+
+            PagerStripFragment searchFragmentmst=new PagerStripFragment();
+            searchFragmentmst.setName("courses");
+            searchFragmentmst.setBranch("Materials Science");
+
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentmst, "Material Science");
+
+
+            PagerStripFragment searchFragmentmnc=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentmnc.setName("courses");
+            searchFragmentmnc.setBranch("Mathematics & Computing");
+            sectionPageAdapter.addFragment(searchFragmentmnc,"Maths and Computing");
+            PagerStripFragment searchFragmentmec=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentmec.setName("courses");
+            searchFragmentmec.setBranch("Mechanical Engineering");
+            sectionPageAdapter.addFragment(searchFragmentmec,"Mechanical");
+            PagerStripFragment searchFragmentmet=new PagerStripFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentmet.setName("courses");
+            searchFragmentmet.setBranch("Metallurgy");
+            sectionPageAdapter.addFragment(searchFragmentmet,"Metallurgy");
+
+            PagerStripFragment searchFragmentmin=new PagerStripFragment();
+            searchFragmentmin.setName("courses");
+            searchFragmentmin.setBranch("Mining");
+            //searchFragmentPeople.setResultInteraction(this);
+            sectionPageAdapter.addFragment(searchFragmentmin, "Mining");
+
+
+            PagerStripFragment searchFragmentphe=new PagerStripFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentphe.setName("courses");
+            searchFragmentphe.setBranch("Pharmaceutical Engineering");
+            sectionPageAdapter.addFragment(searchFragmentphe,"Pharmaceutics");
             viewPager.setAdapter(sectionPageAdapter);
         }
+
         else if(type.toLowerCase().contains("grades"))
         {
             textView.setText("Grades");
-            Log.e("Academic","EventsFragment bnwaya");
-            EventsFragment eventsFragment=new EventsFragment();
-            eventsFragment.setType("sp");
-            sectionPageAdapter.addFragment(eventsFragment,"SPI Graph");
-            EventsFragment eventsFragmentSP=new EventsFragment();
-            eventsFragmentSP.setType("CP");
-            sectionPageAdapter.addFragment(eventsFragmentSP,"CPI Graph");
+            Log.e("Academic","GradesFragment bnwaya");
+            GradesFragment gradesFragment =new GradesFragment();
+            gradesFragment.setType("sp");
+            sectionPageAdapter.addFragment(gradesFragment,"SPI Graph");
+            GradesFragment gradesFragmentSP =new GradesFragment();
+            gradesFragmentSP.setType("CP");
+            sectionPageAdapter.addFragment(gradesFragmentSP,"CPI Graph");
             viewPager.setAdapter(sectionPageAdapter);
         }
-        else if(type.toLowerCase().contains("fests")){
-            textView.setText("Fests");
-            ProfileFragment searchFragmentAll=new ProfileFragment();
+        else if(type.toLowerCase().contains("event")){
+            textView.setText("Events");
+            EventFragment searchFragmentspar=new EventFragment();
             //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(searchFragmentAll,"Spardha");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
+            searchFragmentspar.setName("Spardha");
+            searchFragmentspar.setCouncil("Councils");
+            sectionPageAdapter.addFragment(searchFragmentspar,"Spardha");
+            EventFragment searchFragmentKY=new EventFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Kashiyatra");
+            searchFragmentKY.setName("Kashiyatra");
+            searchFragmentKY.setCouncil("Councils");
+            sectionPageAdapter.addFragment(searchFragmentKY, "Kashiyatra");
 
 
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+            EventFragment searchFragmentTechnex=new EventFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant,"Technex");
+            searchFragmentTechnex.setName("Technex");
+            searchFragmentTechnex.setCouncil("Councils");
+            sectionPageAdapter.addFragment(searchFragmentTechnex,"Technex");
+
+
+            EventFragment searchFragmentFMC=new EventFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentFMC.setName("FMC Weekend");
+            searchFragmentFMC.setCouncil("Councils");
+            sectionPageAdapter.addFragment(searchFragmentFMC,"FMC Weekend");
+            EventFragment searchFragmentAlum=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentAlum.setName("Alumni Meet");
+            searchFragmentAlum.setCouncil("Cells");
+            sectionPageAdapter.addFragment(searchFragmentAlum, "Alumni Meet");
+
+
+            EventFragment searchFragmentHult=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentHult.setName("Hult Prize");
+            searchFragmentHult.setCouncil("Cells");
+            sectionPageAdapter.addFragment(searchFragmentHult,"Hult Prize");
+
+
+            EventFragment searchFragmentsPlac1=new EventFragment();
+            //  searchFragmentAll.set(this);
+            searchFragmentsPlac1.setName("Placement Season");
+            searchFragmentsPlac1.setCouncil("Cells");
+            sectionPageAdapter.addFragment(searchFragmentsPlac1,"Placement Season");
+
+
+            EventFragment searchFragmentPlac2=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentPlac2.setName("Placement Round Two");
+            searchFragmentPlac2.setCouncil("Cells");
+            sectionPageAdapter.addFragment(searchFragmentPlac2, "Placement Round 2");
+
+
+            EventFragment searchFragmentPras=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentPras.setName("Prastuti");
+            searchFragmentPras.setCouncil("Departments/Electrical Engineering");
+            sectionPageAdapter.addFragment(searchFragmentPras,"Prastuti");
+
+            EventFragment searchFragmentJigy=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentJigy.setName("Jigyasa");
+            searchFragmentJigy.setCouncil("Departments/Engineering Physics");
+            sectionPageAdapter.addFragment(searchFragmentJigy, "Jigyasa");
+
+
+            EventFragment searchFragmentAnve=new EventFragment();
+            //searchFragmentPeople.setResultInteraction(this);
+            searchFragmentAnve.setName("Anveshan");
+            searchFragmentAnve.setCouncil("Departments/Metallurgy");
+            sectionPageAdapter.addFragment(searchFragmentAnve,"Anveshan");
 
             viewPager.setAdapter(sectionPageAdapter);
 
         }
-        else if(type.toLowerCase().contains("holidays"))
-        {
+        else if(type.toLowerCase().contains("holidays")) {
             textView.setText("Holidays");
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            holidayModels = new ArrayList<>();
+
+            holiday = findViewById(R.id.holiday_table);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
+            holiday.setLayoutManager(linearLayoutManager);
+
+            holidayModels.add(new HolidayModel("Date", "Occasion"));
+            holidayAdapter = new HolidayAdapter(holidayModels);
+            holiday.setAdapter(holidayAdapter);
+            DatabaseReference reference = database.getReference();
+            reference.child("Holidays").child("Months").child("January").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+
+                            }
+                        }
+                    }
+
+                    for(int i=1;i<13;i++)
+                    {
+                        for(HolidayModel hm : holidayModels)
+                        {
+                            Log.e("TAG","Sort krne aaya apun");
+                            if(hm.getDate().contains("/"))
+                                if(Integer.parseInt(hm.getDate().substring(hm.getDate().indexOf('/')+1))==i)
+                                    finalModels.add(hm);
+                        }
+
+                    }
+                    finalModels.add(new HolidayModel("25/12","Christmas"));
+                    holidayAdapter=new HolidayAdapter(finalModels);
+                    holiday.setAdapter(holidayAdapter);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("February").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("March").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("April").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                Log.e("Fragment Data", obj.toString());
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("May").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+                    finalModels.add(new HolidayModel("Date","Occasion"));
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("June").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("July").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("August").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("September").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("October").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("November").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+            reference.child("Holidays").child("Months").child("December").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    String date, occasion;
+
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+
+                            if (!obj.toString().contains("Holiday =No") || obj.toString().contains("Holiday=No")) {
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Date")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date"), obj.toString().indexOf(',', obj.toString().indexOf("Date"))));
+                                    date = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Date") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Date")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Date")));
+                                    date = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("Occasion")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion"), obj.toString().indexOf(',', obj.toString().indexOf("Occasion"))));
+                                    occasion = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("Occasion") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("Occasion")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Occasion")));
+                                    occasion = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                holidayModels.add(new HolidayModel(date, occasion));
+                                holidayAdapter = new HolidayAdapter(holidayModels);
+                                holiday.setAdapter(holidayAdapter);
+                            }
+                        }
+                    }
+                }
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
             findViewById(R.id.root_view).setVisibility(View.GONE);
+
             findViewById(R.id.holiday_table).setVisibility(View.VISIBLE);
 
         }
-        else if(type.toLowerCase().contains("events"))
-        {
-            textView.setText("Events");
-            findViewById(R.id.root_view).setVisibility(View.GONE);
-            findViewById(R.id.month_text).setVisibility(View.VISIBLE);
-            TextView textView1 =findViewById(R.id.month_text);
-            textView1.setText("This Month");
-            textView1.setTextColor(Color.parseColor("#ab1014"));
-        }
+
         else if(type.toLowerCase().contains("complaint"))
         {
-            SendLetterFragment sendLetterFragment=new SendLetterFragment();
-            //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(sendLetterFragment,"Compose");
-            textView.setText("Complaint Box");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "My Complaints");
 
-
-
-            viewPager.setAdapter(sectionPageAdapter);
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmail.com"));
+            startActivity(browserIntent);
+//            Intent mailClient = new Intent(Intent.ACTION_VIEW);
+//            mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
+//            startActivity(mailClient);
+//            SendLetterFragment sendLetterFragment=new SendLetterFragment();
+//            //  searchFragmentAll.set(this);
+//            sectionPageAdapter.addFragment(sendLetterFragment,"Compose");
+//            textView.setText("Complaint Box");
+//            PagerStripFragment searchFragmentPeople=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            sectionPageAdapter.addFragment(searchFragmentPeople, "My Complaints");
+//
+//
+//
+//            viewPager.setAdapter(sectionPageAdapter);
         }
         else if (type.toLowerCase().contains("letter"))
         {
-            SendLetterFragment sendLetterFragment=new SendLetterFragment();
-            //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(sendLetterFragment,"Compose");
-            textView.setText("Letter Box");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentPeople, "Inbox");
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentRestaurant, "Sent");
-            ProfileFragment searchFragmenttreat=new ProfileFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmenttreat, "Draft");
-            ProfileFragment searchFragmentpole=new ProfileFragment();
-            //searchFragmentPeople.setResultInteraction(this);
-            sectionPageAdapter.addFragment(searchFragmentpole, "☆");
-            viewPager.setAdapter(sectionPageAdapter);
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmail.com"));
+            startActivity(browserIntent);
+//            Intent mailClient = new Intent(Intent.ACTION_VIEW);
+//            mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
+//            startActivity(mailClient);
+////            SendLetterFragment sendLetterFragment=new SendLetterFragment();
+//            //  searchFragmentAll.set(this);
+//            sectionPageAdapter.addFragment(sendLetterFragment,"Compose");
+//            textView.setText("Letter Box");
+//            PagerStripFragment searchFragmentPeople=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            sectionPageAdapter.addFragment(searchFragmentPeople, "Inbox");
+//            PagerStripFragment searchFragmentRestaurant=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            sectionPageAdapter.addFragment(searchFragmentRestaurant, "Sent");
+//            PagerStripFragment searchFragmenttreat=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            sectionPageAdapter.addFragment(searchFragmenttreat, "Draft");
+//            PagerStripFragment searchFragmentpole=new PagerStripFragment();
+//            //searchFragmentPeople.setResultInteraction(this);
+//            sectionPageAdapter.addFragment(searchFragmentpole, "☆");
+//            viewPager.setAdapter(sectionPageAdapter);
         }
         else if (type.toLowerCase().contains("lost"))
         {
-            ProfileFragment sendLetterFragment=new ProfileFragment();
-            //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(sendLetterFragment,"LOST");
-            textView.setText("LOST and FOUND");
-            ProfileFragment FoundLetter=new ProfileFragment();
-            //  searchFragmentAll.set(this);
-            sectionPageAdapter.addFragment(FoundLetter,"FOUND");
-            viewPager.setAdapter(sectionPageAdapter);
-            findViewById(R.id.button_frame).setVisibility(View.VISIBLE);
-            findViewById(R.id.additem1).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    findViewById(R.id.add_item_frame).setVisibility(View.VISIBLE);
-                    findViewById(R.id.additem2).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            findViewById(R.id.add_item_frame).setVisibility(View.GONE);
-                            findViewById(R.id.button_frame).setVisibility(View.VISIBLE);
-                        }
-                    });
-                    findViewById(R.id.button_frame).setVisibility(View.GONE);
-                }
-            });
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://goo.gl/forms/0VcSBapsiAU7sNbm1"));
+            startActivity(browserIntent);
+//            PagerStripFragment sendLetterFragment=new PagerStripFragment();
+//            //  searchFragmentAll.set(this);
+//            sectionPageAdapter.addFragment(sendLetterFragment,"LOST");
+//            textView.setText("LOST and FOUND");
+//            PagerStripFragment FoundLetter=new PagerStripFragment();
+//            //  searchFragmentAll.set(this);
+//            sectionPageAdapter.addFragment(FoundLetter,"FOUND");
+//            viewPager.setAdapter(sectionPageAdapter);
+//            findViewById(R.id.button_frame).setVisibility(View.VISIBLE);
+//            findViewById(R.id.additem1).setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    findViewById(R.id.add_item_frame).setVisibility(View.VISIBLE);
+//                    findViewById(R.id.additem2).setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            findViewById(R.id.add_item_frame).setVisibility(View.GONE);
+//                            findViewById(R.id.button_frame).setVisibility(View.VISIBLE);
+//                        }
+//                    });
+//                    findViewById(R.id.button_frame).setVisibility(View.GONE);
+//                }
+//            });
         }
         else if (type.toLowerCase().contains("my students"))
         {
-            ProfileFragment sendLetterFragment=new ProfileFragment();
+            PagerStripFragment sendLetterFragment=new PagerStripFragment();
             //  searchFragmentAll.set(this);
             sectionPageAdapter.addFragment(sendLetterFragment,"V");
             textView.setText("My Students");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
+            PagerStripFragment searchFragmentPeople=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentPeople, "IV");
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+            PagerStripFragment searchFragmentRestaurant=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentRestaurant, "III");
-            ProfileFragment searchFragmenttreat=new ProfileFragment();
+            PagerStripFragment searchFragmenttreat=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmenttreat, "II");
-            ProfileFragment searchFragmentpole=new ProfileFragment();
+            PagerStripFragment searchFragmentpole=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentpole, "I");
-            ProfileFragment searchFragmentphd=new ProfileFragment();
+            PagerStripFragment searchFragmentphd=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentphd, "Ph.D.");
 
-            ProfileFragment searchFragmentMtech1=new ProfileFragment();
+            PagerStripFragment searchFragmentMtech1=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentMtech1, "MTECH I");
-            ProfileFragment searchFragmentMtech2=new ProfileFragment();
+            PagerStripFragment searchFragmentMtech2=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             sectionPageAdapter.addFragment(searchFragmentMtech2, "MTECH II");
             viewPager.setAdapter(sectionPageAdapter);
         }
         else if (type.toLowerCase().contains("all students"))
         {
-            ProfileFragment sendLetterFragment=new ProfileFragment();
+            PagerStripFragment searchFragment5=new PagerStripFragment();
             //  searchFragmentAll.set(this);
-            sendLetterFragment.setName("branches");
-            sectionPageAdapter.addFragment(sendLetterFragment,"V");
+            searchFragment5.setName("branches");
+            searchFragment5.setBranch("2014");
+            sectionPageAdapter.addFragment(searchFragment5,"V");
             textView.setText("All Students");
-            ProfileFragment searchFragmentPeople=new ProfileFragment();
+            PagerStripFragment searchFragment4=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            searchFragmentPeople.setName("branches");
-            sectionPageAdapter.addFragment(searchFragmentPeople, "IV");
-            ProfileFragment searchFragmentRestaurant=new ProfileFragment();
+            searchFragment4.setName("branches");
+            searchFragment4.setBranch("2015");
+            sectionPageAdapter.addFragment(searchFragment4, "IV");
+            PagerStripFragment searchFragment3=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            searchFragmentRestaurant.setName("branches");
-            sectionPageAdapter.addFragment(searchFragmentRestaurant, "III");
-            ProfileFragment searchFragmenttreat=new ProfileFragment();
+            searchFragment3.setName("branches");
+            searchFragment3.setBranch("2016");
+            sectionPageAdapter.addFragment(searchFragment3, "III");
+            PagerStripFragment searchFragment2=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            searchFragmenttreat.setName("branches");
-            sectionPageAdapter.addFragment(searchFragmenttreat, "II");
-            ProfileFragment searchFragmentpole=new ProfileFragment();
+            searchFragment2.setName("branches");
+            searchFragment2.setBranch("2017");
+            sectionPageAdapter.addFragment(searchFragment2, "II");
+            PagerStripFragment searchFragment1=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
-            searchFragmentpole.setName("branches");
-            sectionPageAdapter.addFragment(searchFragmentpole, "I");
-            ProfileFragment searchFragmentphd=new ProfileFragment();
+            searchFragment1.setName("branches");
+            searchFragment1.setBranch("2018");
+            sectionPageAdapter.addFragment(searchFragment1, "I");
+            PagerStripFragment searchFragmentphd=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentphd.setName("branches");
+            searchFragmentphd.setBranch("Ph.D");
             sectionPageAdapter.addFragment(searchFragmentphd, "Ph.D.");
 
-            ProfileFragment searchFragmentMtech1=new ProfileFragment();
+            PagerStripFragment searchFragmentMtech1=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentMtech1.setName("branches");
+            searchFragmentMtech1.setBranch("M.Tech 2018");
             sectionPageAdapter.addFragment(searchFragmentMtech1, "MTECH I");
-            ProfileFragment searchFragmentMtech2=new ProfileFragment();
+            PagerStripFragment searchFragmentMtech2=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentMtech2.setName("branches");
+            searchFragmentMtech2.setBranch("M.Tech 2017");
             sectionPageAdapter.addFragment(searchFragmentMtech2, "MTECH II");
             viewPager.setAdapter(sectionPageAdapter);
         }
         else if (type.toLowerCase().contains("my courses"))
         {
-            ProfileFragment sendLetterFragment=new ProfileFragment();
+            PagerStripFragment sendLetterFragment=new PagerStripFragment();
             //  searchFragmentAll.set(this);
             sectionPageAdapter.addFragment(sendLetterFragment,"Current Courses");
             textView.setText("My Courses");

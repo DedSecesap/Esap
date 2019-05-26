@@ -1,11 +1,9 @@
 package com.example.apple.myapplication;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,14 +11,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlannerActivity extends AppCompatActivity implements ElectricProfFragment.OnFragmentInteractionListener  {
+public class PlannerActivity extends AppCompatActivity implements RecyclerViewFragment.OnFragmentInteractionListener  {
     private ViewPager viewPager;
     private SectionPageAdapter sectionPageAdapter;
     FloatingActionButton fab;
@@ -42,52 +39,52 @@ public class PlannerActivity extends AppCompatActivity implements ElectricProfFr
                 finish();
             }
         });
-        ProfileFragment searchFragmentmon=new ProfileFragment();
+        PagerStripFragment searchFragmentmon=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentmon.setName("jan");
         sectionPageAdapter.addFragment(searchFragmentmon,"January");
-        ProfileFragment searchFragmenttue=new ProfileFragment();
+        PagerStripFragment searchFragmenttue=new PagerStripFragment();
         searchFragmenttue.setName("feb");
         //  searchFragmentAll.set(this);
         sectionPageAdapter.addFragment(searchFragmenttue,"February");
-        ProfileFragment searchFragmentwed=new ProfileFragment();
+        PagerStripFragment searchFragmentwed=new PagerStripFragment();
         searchFragmentwed.setName("mar");
         //  searchFragmentAll.set(this);
         sectionPageAdapter.addFragment(searchFragmentwed,"March");
-        ProfileFragment searchFragmentthu=new ProfileFragment();
+        PagerStripFragment searchFragmentthu=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentthu.setName("apr");
         sectionPageAdapter.addFragment(searchFragmentthu,"April");
-        ProfileFragment searchFragmentfri=new ProfileFragment();
+        PagerStripFragment searchFragmentfri=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentfri.setName("may");
         sectionPageAdapter.addFragment(searchFragmentfri,"May");
-        ProfileFragment searchFragmentsat=new ProfileFragment();
+        PagerStripFragment searchFragmentsat=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentsat.setName("jun");
         sectionPageAdapter.addFragment(searchFragmentsat,"June");
-        ProfileFragment searchFragmentsun=new ProfileFragment();
+        PagerStripFragment searchFragmentsun=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentsun.setName("july");
         sectionPageAdapter.addFragment(searchFragmentsun,"July");
 
-        ProfileFragment searchFragmentaug=new ProfileFragment();
+        PagerStripFragment searchFragmentaug=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentaug.setName("aug");
         sectionPageAdapter.addFragment(searchFragmentaug,"August");
-        ProfileFragment searchFragmentsep=new ProfileFragment();
+        PagerStripFragment searchFragmentsep=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentsep.setName("sep");
         sectionPageAdapter.addFragment(searchFragmentsep,"Sept");
-        ProfileFragment searchFragmentoct=new ProfileFragment();
+        PagerStripFragment searchFragmentoct=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentoct.setName("oct");
         sectionPageAdapter.addFragment(searchFragmentoct,"October");
-        ProfileFragment searchFragmentnov=new ProfileFragment();
+        PagerStripFragment searchFragmentnov=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentnov.setName("nov");
         sectionPageAdapter.addFragment(searchFragmentnov,"November");
-        ProfileFragment searchFragmentdec=new ProfileFragment();
+        PagerStripFragment searchFragmentdec=new PagerStripFragment();
         //  searchFragmentAll.set(this);
         searchFragmentdec.setName("dec");
         sectionPageAdapter.addFragment(searchFragmentdec,"December");

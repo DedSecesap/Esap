@@ -121,44 +121,20 @@
         android:visibility="gone"
         android:id="@+id/imageview_In_general"/>
 
-    <TableLayout
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/holiday_table"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="67dp"
 
-        android:background="#FBFA09"
         android:layout_height="wrap_content">
 
-        <TableRow
-        android:layout_width="match_parent"
-           android:padding="1dp"
-        android:layout_height="match_parent" >
-        <TextView
-            android:text="      DATE       "
-            android:textSize="25sp"
-            android:background="#4F4F4F"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"/>
-
-        <TextView
-            android:text="        OCCASIONS        "
-            android:textSize="25sp"
-            android:layout_marginStart="3dp"
-            android:padding="1dp"
-            android:background="#4F4F4F"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"/>
-
-
-    </TableRow>
-    </TableLayout>
+    </android.support.v7.widget.RecyclerView>
     <FrameLayout
         android:layout_width="match_parent"
         android:id="@+id/button_frame"
+        android:background="#f9d71c"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="wrap_content">
 

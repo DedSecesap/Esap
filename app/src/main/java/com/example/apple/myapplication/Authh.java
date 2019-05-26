@@ -10,13 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class Authh extends AppCompatActivity  implements EventsFragment.OnFragmentInteractionListener,
+public class Authh extends AppCompatActivity  implements GradesFragment.OnFragmentInteractionListener,
         MyplanerFragment.EventClickListener
 
 {
@@ -45,8 +42,8 @@ public class Authh extends AppCompatActivity  implements EventsFragment.OnFragme
         mMPF=new MyplanerFragment();
         mMPF.setEventClickListener(this);
 
-        mPF = new ProfileFragment();
-        mEvF=new EventsFragment();
+        mPF = new PagerStripFragment();
+        mEvF=new GradesFragment();
 
         setFragment(mEvF);
 
@@ -64,7 +61,7 @@ public class Authh extends AppCompatActivity  implements EventsFragment.OnFragme
                         return true;
 
                     case R.id.b_pf :
-                        Fragment fragment=new ProfileFragment();
+                        Fragment fragment=new PagerStripFragment();
                         Bundle bundle=new Bundle();
                         bundle.putString("name",name);
                         fragment.setArguments(bundle);
