@@ -18,7 +18,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style		name="Today"		>		<item name="android:fontFamily">Gill Sans</item>		<item name="android:textColor">#828282</item>		<item name="android:textSize">17px</item>			</style>
+    <style name="Today">
+        <item name="android:fontFamily">Gill Sans</item>
+        <item name="android:textColor">#828282</item>
+        <item name="android:textSize">17px</item>
+    </style>
 
     <style name="YOURSTYLE">
         <item name="android:textColor">@android:color/white</item>
@@ -28,7 +32,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:itemBackground">#4F4F4F</item>
     </style>
-   <!-- <style name="AppThemeWhiteActionBar" parent="AppThemeWithBar">
+    <!-- <style name="AppThemeWhiteActionBar" parent="AppThemeWithBar">
         <item name="actionBarStyle">@style/AppThemeWhiteActionBar.ActionBar</item>
     </style>
 
@@ -44,14 +48,16 @@
 
 
     </style>
+
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppThemeWhiteActionBar.TabLayout" >
+    <style name="AppThemeWhiteActionBar.TabLayout">
         <item name="tabBackground">@color/colorPrimaryDark</item>
 
         <item name="tabSelectedTextColor">@color/colorPrimaryDark</item>
         <item name="tabIndicatorColor">@color/colorAccent</item>
     </style>
+
     <style name="AppThemeWithBar" parent="Theme.AppCompat.Light"></style>
 
 

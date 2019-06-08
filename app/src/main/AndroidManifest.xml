@@ -13,8 +13,18 @@
         android:roundIcon="@drawable/cdi_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-
         tools:ignore="GoogleAppIndexingWarning">
+        <service android:name="com.example.apple.myapplication.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--service-->
+            <!--android:name=".MyFcmListenerService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -37,10 +47,11 @@
             android:label="@string/title_activity_opening" />
         <activity android:name=".InGeneralAcademicActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".CourseInfoActivity"
-            android:label="Course Info">
+        <activity
+            android:name=".CourseInfoActivity"
+            android:label="Course Info"></activity>
 
-        </activity>
+
     </application>
 
 </manifest>
