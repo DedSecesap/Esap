@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    def Firebase_messaging_version = '18.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -38,8 +39,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-crash:16.2.1'
     implementation 'com.google.firebase:firebase-storage:17.0.0'
     implementation 'com.github.tibolte:agendacalendarview:1.0.4'
-    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0-rc02'
     implementation 'com.android.support:support-vector-drawable:28.0.0'
+    implementation "com.google.firebase:firebase-messaging:$Firebase_messaging_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

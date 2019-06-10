@@ -1082,18 +1082,18 @@ GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteraction
             PagerStripFragment searchFragmentphd=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentphd.setName("branches");
-            searchFragmentphd.setBranch("Ph.D");
+            searchFragmentphd.setBranch("PhD");
             sectionPageAdapter.addFragment(searchFragmentphd, "Ph.D.");
 
             PagerStripFragment searchFragmentMtech1=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentMtech1.setName("branches");
-            searchFragmentMtech1.setBranch("M.Tech 2018");
+            searchFragmentMtech1.setBranch("MTech 2018");
             sectionPageAdapter.addFragment(searchFragmentMtech1, "MTECH I");
             PagerStripFragment searchFragmentMtech2=new PagerStripFragment();
             //searchFragmentPeople.setResultInteraction(this);
             searchFragmentMtech2.setName("branches");
-            searchFragmentMtech2.setBranch("M.Tech 2017");
+            searchFragmentMtech2.setBranch("MTech 2017");
             sectionPageAdapter.addFragment(searchFragmentMtech2, "MTECH II");
             viewPager.setAdapter(sectionPageAdapter);
         }
