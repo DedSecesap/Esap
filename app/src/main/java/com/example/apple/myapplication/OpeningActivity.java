@@ -193,6 +193,11 @@ public class OpeningActivity extends AppCompatActivity {
                                     intent.putExtra("Type", item.getTitle());
                                     startActivity(intent);
                                     break;
+                                case R.id.four:
+                                    intent = new Intent(getApplicationContext(), ChatActivityDefault.class);
+                                    intent.putExtra("Type", item.getTitle());
+                                    startActivity(intent);
+                                    break;
                             }
                             return true;
                         }

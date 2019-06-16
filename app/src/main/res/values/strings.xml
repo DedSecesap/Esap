@@ -24,4 +24,5 @@
     <string name="title_activity_main_notification">mainNotification</string>
     <string name="msg_subscribe_failed" />
     <string name="msg_subscribed" />
+    <string name="sign_out">Sign Out</string>
 </resources>
