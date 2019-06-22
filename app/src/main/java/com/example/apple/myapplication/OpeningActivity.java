@@ -193,6 +193,11 @@ public class OpeningActivity extends AppCompatActivity {
                                     intent.putExtra("Type", item.getTitle());
                                     startActivity(intent);
                                     break;
+                                case R.id.four:
+                                    intent = new Intent(getApplicationContext(), ChatActivityDefault.class);
+                                    intent.putExtra("Type", item.getTitle());
+                                    startActivity(intent);
+                                    break;
                             }
                             return true;
                         }
@@ -230,37 +235,41 @@ public class OpeningActivity extends AppCompatActivity {
                     {
                         branchcode="0440";
                     }
-                    else if(dept.contains("cse"))
-                    {
-                        branchcode="0540";
-                    }
-                    else if(dept.contains("eee"))
+                    else if(dept.contains("civ"))
                     {
                         branchcode="0640";
                     }
-                    else  if(dept.contains("ece"))
+                    else if(dept.contains("cse"))
                     {
                         branchcode="0740";
-                    }else
-                    if(dept.contains("phy"))
+                    }
+                    else if(dept.contains("eee"))
                     {
                         branchcode="0840";
-                    }else
-                    if(dept.contains("chy"))
+                    }
+                    else  if(dept.contains("ece"))
                     {
                         branchcode="0940";
                     }else
-                    if(dept.contains("mst"))
+                    if(dept.contains("phy"))
+                    {
+                        branchcode="1740";
+                    }else
+                    if(dept.contains("chy"))
                     {
                         branchcode="1040";
                     }else
-                    if(dept.contains("mat"))
+                    if(dept.contains("mst"))
                     {
                         branchcode="1140";
                     }else
-                    if(dept.contains("mec"))
+                    if(dept.contains("mat"))
                     {
                         branchcode="1240";
+                    }else
+                    if(dept.contains("mec"))
+                    {
+                        branchcode="1340";
                     }else
                     if(dept.contains("met"))
                     {

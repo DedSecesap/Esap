@@ -7,4 +7,10 @@
 
     <color name="Grey">#80ffffff</color>
     <color name="milkwhite">#e4e4e4</color>
+    <color name="blue">#0c9de1</color>
+    <color name="green">#95f033</color>
+    <color name="white">#fefefe</color>
+    <color name="lightgrey">#e7eced</color>
+    <color name="darkgrey">#333333</color>
+    <color name="Black">#0f0f0d</color>
 </resources>

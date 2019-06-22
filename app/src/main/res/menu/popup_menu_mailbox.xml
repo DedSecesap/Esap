@@ -13,4 +13,8 @@
         android:id="@+id/three"
         android:title="Lost and Found Box" />
 
+    <item
+        android:id="@+id/four"
+        android:title="Chat Box" />
+
 </menu>

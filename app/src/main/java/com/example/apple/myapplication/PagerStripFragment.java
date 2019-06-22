@@ -229,7 +229,7 @@ public class PagerStripFragment extends Fragment implements RecyclerViewFragment
             else if (name.contains("courses")) {
                 return 7;
             } else if (name.contains("branches")) {
-                return 15;
+                return 16;
             }
             else if(name.contains("profess")){
                 return 3;
@@ -267,26 +267,28 @@ public class PagerStripFragment extends Fragment implements RecyclerViewFragment
                     case 3:
                         return "Chemical";
                     case 4:
-                        return "Computer Science";
+                        return "Civil";
                     case 5:
-                        return "Electrical";
+                        return "Computer Science";
                     case 6:
-                        return "Electronics";
+                        return "Electrical";
                     case 7:
-                        return "Physics";
+                        return "Electronics";
                     case 8:
-                        return "Chemistry";
+                        return "Physics";
                     case 9:
-                        return "Material Science";
+                        return "Chemistry";
                     case 10:
-                        return "Maths and Computing";
+                        return "Material Science";
                     case 11:
-                        return "Mechanical";
+                        return "Maths and Computing";
                     case 12:
-                        return "Metallurgy";
+                        return "Mechanical";
                     case 13:
-                        return "Mining";
+                        return "Metallurgy";
                     case 14:
+                        return "Mining";
+                    case 15:
                         return "Pharmaceutics";
 
                 }

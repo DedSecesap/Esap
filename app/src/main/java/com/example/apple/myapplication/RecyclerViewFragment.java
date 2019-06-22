@@ -157,46 +157,50 @@ public class RecyclerViewFragment extends Fragment {
                         CourseCode="0450";
                         break;
                     case 4:
-                        branchName="Computer Science";
-                        CourseCode="0540";
+                        branchName="Civil";
+                        CourseCode="0650";
                         break;
                     case 5:
-                        branchName="Electrical";
-                        CourseCode="0640";
+                        branchName="Computer Science";
+                        CourseCode="0740";
                         break;
-                        case 6:
-                        branchName="Electronics";
-                            CourseCode="0740";
-                            break;
-                    case 7:
-                        branchName="Physics";
+                    case 6:
+                        branchName="Electrical";
                         CourseCode="0840";
                         break;
+                        case 7:
+                        branchName="Electronics";
+                            CourseCode="0940";
+                            break;
                     case 8:
-                        branchName="Chemistry";
-                        CourseCode="0940";
+                        branchName="Physics";
+                        CourseCode="1740";
                         break;
                     case 9:
-                        branchName="Material Science";
+                        branchName="Chemistry";
                         CourseCode="1040";
                         break;
                     case 10:
-                        branchName="Maths and Computing";
+                        branchName="Material Science";
                         CourseCode="1140";
                         break;
                     case 11:
-                        branchName="Mechanical";
+                        branchName="Maths and Computing";
                         CourseCode="1240";
                         break;
                     case 12:
+                        branchName="Mechanical";
+                        CourseCode="1340";
+                        break;
+                    case 13:
                         branchName="Metallurgy";
                         CourseCode="1440";
                         break;
-                    case 13:
+                    case 14:
                         branchName="Mining";
                         CourseCode="1540";
                         break;
-                    case 14:
+                    case 15:
                         branchName="Pharmaceutics";
                         CourseCode="1640";
                         break;
@@ -216,7 +220,7 @@ public class RecyclerViewFragment extends Fragment {
                             if (objectHashMap != null) {
                                 ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
                                 for (Object obj : objectArrayList) {
-                                    if (!(obj.toString().contains("IDD")||obj.toString().contains("MetSoc")||obj.toString().contains("Metallurgy")||obj.toString().contains("Morvi")||obj.toString().contains("BTech"))) {
+                                    if (!(obj.toString().contains("IDD")||obj.toString().contains("MetSoc")||obj.toString().contains("Boys")||obj.toString().contains("Girls")||obj.toString().contains("Metallurgy")||obj.toString().contains("Biochemical")||obj.toString().contains("Biomedical")||obj.toString().contains("Ceramics")||obj.toString().contains("Chemical")||obj.toString().contains("Computer")||obj.toString().contains("Civil")||obj.toString().contains("Electronics")||obj.toString().contains("Mechanical")||obj.toString().contains("Pharma")||obj.toString().contains("Engineering ")||obj.toString().contains("Morvi")||obj.toString().contains("BTech"))) {
                                         Log.e("Fragment Data", obj.toString());
                                         if (obj.toString().indexOf(',', obj.toString().indexOf("Name")) != -1) {
                                             Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Name"), obj.toString().indexOf(',', obj.toString().indexOf("Name"))));
@@ -228,9 +232,11 @@ public class RecyclerViewFragment extends Fragment {
                                         academicActivityModels.add(new AcademicActivityModel(courseName,obj.toString(),"students"));
                                     }
                                     }
+
+                                    Log.e("TGGG", String.valueOf(academicActivityModels.size()));
                                     AcademicActivityAdaptor academicActivityAdaptor = new AcademicActivityAdaptor(academicActivityModels,getActivity());
                                     dailyRecy.setAdapter(academicActivityAdaptor);
-
+                                    dailyRecy.setVisibility(View.VISIBLE);
                                 }
 
                         }
