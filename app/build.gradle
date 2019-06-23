@@ -20,13 +20,25 @@ android {
 }
 
 dependencies {
-    def Firebase_messaging_version = '18.0.0'
+    def Firebase_messaging_version = '17.0.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.jjoe64:graphview:4.2.1'
-
     implementation 'com.github.thellmund:Android-Week-View:2.0'
+
+
+
+
+    implementation 'de.hdodenhof:circleimageview:1.2.1'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+
+
 
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.9'
@@ -38,7 +50,7 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation platform('com.google.firebase:firebase-bom:17.0.0')
     implementation 'com.google.firebase:firebase-crash:16.2.1'
-    implementation 'com.google.firebase:firebase-storage:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:18.0.0'
     implementation 'com.github.tibolte:agendacalendarview:1.0.4'
     implementation 'com.firebaseui:firebase-ui-database:4.2.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
@@ -51,4 +63,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
 apply plugin: 'com.google.gms.google-services'
