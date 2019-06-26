@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    def Firebase_messaging_version = '17.0.3'
+    def Firebase_messaging_version = '18.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
