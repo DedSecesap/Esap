@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000033"
+    tools:context=".ProfileActivity">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appbare_frams"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#4F4F4F"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders" />
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/drawer_open"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_home_black_24dp"/>
+
+
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="520dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="WELCOME!"
+                    android:textColor="#fefefe"
+                    android:textSize="30dp" />
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="30dp"
+                android:text="Name"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="270dp"
+                android:background="@drawable/ProfilePhoto"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="125dp"
+                android:layout_marginLeft="30dp"
+                android:text="Roll No"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/branch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160dp"
+                android:text="branch"
+                android:layout_marginLeft="150dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/DormantNewsButton"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/DormantResearchButton"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/DormantContactButton"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/DormantWorkExButton"/>
+            </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              >
+
+              <ImageView
+                  android:layout_width="80dp"
+                  android:layout_height="120dp"
+                  android:src="@drawable/clubbox"
+                  android:layout_marginLeft="40dp"
+                  android:layout_marginTop="400dp" />
+              <ImageView
+                  android:layout_width="80dp"
+                  android:layout_height="120dp"
+                  android:src="@drawable/clubbox"
+                  android:layout_marginTop="400dp"
+                  android:layout_marginLeft="40dp"
+                  />
+              <ImageView
+              android:layout_width="80dp"
+              android:layout_height="120dp"
+              android:src="@drawable/clubbox"
+              android:layout_marginTop="400dp"
+              android:layout_marginLeft="40dp"
+              />
+          </LinearLayout>
+
+
+
+        </>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

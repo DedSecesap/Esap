@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/FirstSignUpPage"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#2 Club Detail"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/edit_box"/>
+    <EditText
+        android:id="@+id/Council"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Council Name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/clubName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Club Name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/designation_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Designation"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#3 Training Detail"
+        android:textSize="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/edit_box"/>
+    <EditText
+        android:id="@+id/Project"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Project Name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/prof_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Professor Name"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/History"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="History and research"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <Button
+
+        android:id="@+id/Savedata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:text="Save"
+        android:background="@drawable/edit_box"/>
+
+</>

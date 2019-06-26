@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/FirstSignUpPage"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#1 Academic Detail"
+        android:textSize="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/edit_box"
+        />
+    <EditText
+        android:id="@+id/Year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Academic Year"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+         />
+    <EditText
+        android:id="@+id/Branch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Branch"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/rollno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Roll No"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/Degree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Degree"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <EditText
+        android:id="@+id/Hostel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@string/common_google_play_services_enable_text"
+        android:hint="Hostel (if any)"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/milkwhite"
+        android:backgroundTint="@color/white"
+        />
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="120dp"
+        android:text="Next"
+        android:background="@drawable/edit_box"/>
+
+
+</LinearLayout>
