@@ -9,6 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,14 +24,15 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/session_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="top"
-                android:background="#4F4F4F"
+                android:background="#003366"
                 app:contentInsetEnd="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetRight="0dp"
@@ -80,8 +82,8 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabSelectedTextColor="#95f033"
-                app:tabTextColor="#fefefe"
+                app:tabSelectedTextColor="#000033"
+                app:tabTextColor="@color/colorAccent"
                 app:tabGravity="fill"
                 app:tabMode="scrollable"
                 />
@@ -92,7 +94,8 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/viewpager_on_click"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#33ccff">
             <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
 
         </android.support.v4.view.ViewPager>
@@ -103,7 +106,8 @@
         android:layout_height="match_parent"
         android:visibility="visible"
         android:layout_marginTop="15dp"
-        android:id="@+id/search_fragment_placeholder">
+        android:id="@+id/search_fragment_placeholder"
+        >
     </FrameLayout>
 
 
