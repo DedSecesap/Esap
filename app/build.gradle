@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
 
 android {
     compileSdkVersion 28
@@ -20,7 +22,7 @@ android {
 }
 
 dependencies {
-    def Firebase_messaging_version = '17.0.3'
+    def Firebase_messaging_version = '18.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -50,7 +52,9 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation platform('com.google.firebase:firebase-bom:17.0.0')
     implementation 'com.google.firebase:firebase-crash:16.2.1'
-    implementation 'com.google.firebase:firebase-storage:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.crashlytics.sdk.android:crashlytics'
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
     implementation 'com.github.tibolte:agendacalendarview:1.0.4'
     implementation 'com.firebaseui:firebase-ui-database:4.2.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
@@ -58,8 +62,13 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:support-vector-drawable:28.0.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display'
+    implementation 'com.google.firebase:firebase-config'
+
     implementation "com.google.firebase:firebase-messaging:$Firebase_messaging_version"
     testImplementation 'junit:junit:4.12'
+
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

@@ -20,6 +20,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
     private static final String TAG = "Android News App";
     private static final String CHANNEL_ID = "channel1";
+    private static final String FRIENDLY_ENGAGE_TOPIC = "friendly_engage";
 
 
     @Override
@@ -28,6 +29,9 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         //It is optional
         Log.e(TAG, "From: " + remoteMessage.getFrom());
         Log.e(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        Log.d(TAG, "FCM Message Id: " + remoteMessage.getMessageId());
+        Log.d(TAG, "FCM Notification Message: " + remoteMessage.getNotification());
+        Log.d(TAG, "FCM Data Message: " + remoteMessage.getData());
 
         //Calling method to generate notification
         sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
@@ -61,8 +65,10 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     public void onNewToken(String token) {
         Log.d(TAG, "Refreshed token: " + token);
 
-
-        sendRegistrationToServer(token);
+        Log.d(TAG, "FCM Token: " + token);
+        // Once a token is generated, we subscribe to topic.
+        FirebaseMessaging.getInstance()
+                .subscribeToTopic(FRIENDLY_ENGAGE_TOPIC);
     }
 
     private void sendRegistrationToServer(String token) {

@@ -49,7 +49,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         TextView Contact;
         TextView Venue;
         TextView Time;
-        int dwars;
+
         ImageView imageView;
 
 
@@ -73,7 +73,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             Contact.setText(classT.getEventContact());
             Venue.setText(classT.getEventVenue());
             Time.setText(classT.getEventTime());
-            imageView.setImageResource(dwars);
+
 
 
         }

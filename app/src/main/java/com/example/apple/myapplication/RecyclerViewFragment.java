@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +46,8 @@ public class RecyclerViewFragment extends Fragment {
     private String name;
     private String branchName;
     String courseName;
+
+
     private String branch;
 
     private OnFragmentInteractionListener mListener;
@@ -91,6 +95,7 @@ public class RecyclerViewFragment extends Fragment {
         LinearLayoutManager llm= new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         dailyRecy.setLayoutManager(llm);
         final List<AcademicActivityModel> academicActivityModels=new ArrayList<>();
+         final  List<TodayModel> classes=new ArrayList<>();
         if(name.contains("courses"))
         {
             if(mParam1<=5)
@@ -383,6 +388,134 @@ public class RecyclerViewFragment extends Fragment {
                         }
                     });
                 }
+        }
+        else if(name.endsWith("day"))
+        {
+            FirebaseDatabase database=FirebaseDatabase.getInstance();
+            DatabaseReference databaseReference=database.getReference();
+
+            FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+            FirebaseUser mUser=firebaseAuth.getCurrentUser();
+            String email=mUser.getEmail();
+            if(email.contains("itbhu")) {
+                int year = 19 - Integer.parseInt(email.substring(email.indexOf("@") - 2, email.indexOf("@")));
+                String branchcode = null;
+                String dept = email.substring(email.indexOf("@") - 5, email.indexOf("@") - 2);
+                if (dept.contains("bme")) {
+                    branchcode = "Biomedical";
+                } else if (dept.contains("bce")) {
+                    branchcode = "Biochemical";
+                } else if (dept.contains("cer")) {
+                    branchcode = "Ceramic";
+                } else if (dept.contains("che")) {
+                    branchcode = "Chemical";
+                } else if (dept.contains("civ")) {
+                    branchcode = "Civil";
+                } else if (dept.contains("cse")) {
+                    branchcode = "Computer Science";
+                } else if (dept.contains("eee")) {
+                    branchcode = "Electrical";
+                } else if (dept.contains("ece")) {
+                    branchcode = "Electronics";
+                } else if (dept.contains("phy")) {
+                    branchcode = "Physics";
+                } else if (dept.contains("chy")) {
+                    branchcode = "Chemistry";
+                } else if (dept.contains("mst")) {
+                    branchcode = "Material Science";
+                } else if (dept.contains("mat")) {
+                    branchcode = "Maths and Computing";
+                } else if (dept.contains("mec")) {
+                    branchcode = "Mechanical";
+                } else if (dept.contains("met")) {
+                    branchcode = "Metallurgy";
+                } else if (dept.contains("min")) {
+                    branchcode = "Mining";
+                } else if (dept.contains("phe")) {
+                    branchcode = "Pharmaceutical Engineering";
+                }
+
+
+                Log.e("REG", name + " of dept  Metallurgy ");
+                databaseReference.child("TimeTable").child("Branches").child(branchcode).child("Days").child(name).child("Year" + year).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                        };
+                        Map<String, Object> objectHashMap = null;
+                        objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                        if (objectHashMap != null) {
+                            ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                            for (Object obj : objectArrayList) {
+                                Log.e("Fragment Data", obj.toString());
+                                String code;
+                                String hall;
+                                String starttime;
+                                String endtime;
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("code")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("code"), obj.toString().indexOf(',', obj.toString().indexOf("code"))));
+                                    code = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("code") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("code")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("code")));
+                                    code = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("venue")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("venue"), obj.toString().indexOf(',', obj.toString().indexOf("venue"))));
+                                    hall = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("venue") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("venue")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("venue")));
+                                    hall = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("start_time")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("start_time"), obj.toString().indexOf(',', obj.toString().indexOf("start_time"))));
+                                    starttime = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("start_time") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("start_time")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("start_time")));
+                                    starttime = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+                                if (obj.toString().indexOf(',', obj.toString().indexOf("end_time")) != -1) {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("end_time"), obj.toString().indexOf(',', obj.toString().indexOf("end_time"))));
+                                    endtime = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("end_time") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("end_time")));
+                                } else {
+                                    Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("end_time")));
+                                    endtime = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                                }
+
+                                classes.add(new TodayModel(hall, starttime + " - " + endtime, code));
+
+                            }
+                            List<TodayModel> arrangedclass = new ArrayList<>();
+                            int i = 800;
+                            int flag = 0;
+                            while (i < 1800) {
+                                for (TodayModel model : classes) {
+                                    String start = model.getTime();
+                                    if (start.contains(String.valueOf(i))) {
+                                        arrangedclass.add(model);
+
+                                    }
+
+                                }
+                                i = i + 100;
+                            }
+                            TodayAdapter todayAdapter = new TodayAdapter(arrangedclass);
+                            dailyRecy.setAdapter(todayAdapter);
+
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+
+
+
         }
 
         return view;

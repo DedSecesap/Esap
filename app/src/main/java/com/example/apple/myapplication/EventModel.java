@@ -9,7 +9,7 @@ public class EventModel {
     private String eventTime;
     private int drawable;
 
-    public EventModel(String eventName,String eventText,String eventClub,String eventContact,String eventVenue,String eventTime,int drawable)
+    public EventModel(String eventName,String eventText,String eventClub,String eventContact,String eventVenue,String eventTime)
     {
         this.eventName=eventName;
         this.eventText=eventText;
@@ -17,7 +17,7 @@ public class EventModel {
         this.eventContact=eventContact;
         this.eventVenue=eventVenue;
         this.eventTime=eventTime;
-        this.drawable=drawable;
+
 
     }
 
@@ -26,9 +26,7 @@ public class EventModel {
         return eventClub;
     }
 
-    public int getDrawable() {
-        return drawable;
-    }
+
 
     public String getEventContact() {
         return eventContact;

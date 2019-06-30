@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#fff"
+    android:background="@drawable/white_curve_rectangle"
     android:layout_height="300dp">
 
 
@@ -50,7 +50,7 @@
         android:text="Contact"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@id/textView6" />
 
@@ -61,7 +61,7 @@
         android:text="Venue"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
@@ -80,9 +80,10 @@
         android:id="@+id/imageView2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="?android:attr/actionModeBackground"
+        android:src="@drawable/events_img"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
+
         android:layout_marginEnd="50dp"
         app:layout_constraintTop_toTopOf="parent" />
 

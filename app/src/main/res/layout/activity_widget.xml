@@ -5,7 +5,7 @@
     android:id="@+id/layout"
     android:layout_height="match_parent"
     android:layout_margin="8dip"
-    android:background="@drawable/drawbale_widget" >
+     >
 
     <TextView
         android:id="@+id/update"

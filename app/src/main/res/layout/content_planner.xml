@@ -10,7 +10,6 @@
     tools:showIn="@layout/activity_planner"   >
     <FrameLayout
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="match_parent"
         >
         <LinearLayout
@@ -71,7 +70,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:visibility="gone"
         android:id="@+id/root_view"
         android:layout_marginTop="?attr/actionBarSize">
 
@@ -118,13 +116,12 @@
         android:layout_width="wrap_content"
         android:background="@drawable/white_curve_rectangle"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/add_event_frame"
         android:visibility="gone"
+        android:id="@+id/add_event_frame"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="350dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -148,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="35dp"
                 android:text="29/12/1993344"
                 android:textColor="#FFF"
                 />
@@ -177,7 +174,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="35dp"
                 android:text="29/12/1999"
                 android:textColor="#FFF"
                 />
@@ -186,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:src="@drawable/noun_calendar_2080608"
                 android:layout_gravity="end|center"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="35dp"
                 android:layout_height="wrap_content" />
 
 
@@ -194,7 +191,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+
             android:layout_marginStart="20dp"
             android:layout_gravity="center"
             android:layout_height="wrap_content">
@@ -205,6 +203,15 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:text="9:00"
+                    android:layout_marginStart="10dp"
+
+                    />
                 <ImageView
                     android:layout_width="3dp"
                     android:layout_height="50dp"
@@ -250,6 +257,15 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:text="10:00"
+                    android:layout_marginStart="10dp"
+
+                    />
                 <ImageView
                     android:layout_width="3dp"
                     android:layout_height="50dp"
@@ -285,8 +301,8 @@
             android:layout_width="match_parent"
             android:background="@drawable/to_fill_textbox"
             android:layout_marginStart="20dp"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="20dp"
             android:layout_height="100dp">
 
@@ -294,7 +310,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="35dp"
                 android:text="29/12/1999"
                 android:textColor="#FFF"
                 />
@@ -314,6 +330,9 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:visibility="gone"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
     android:text="This section will be active from next session."
     android:textColor="#95f033"
     android:textSize="40sp"

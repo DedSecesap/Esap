@@ -4,7 +4,6 @@
     <item
 
         android:id="@+id/one"
-        android:actionLayout="@layout/cart_update_count"
         android:title="Professors"
         app:showAsAction="always" />
 

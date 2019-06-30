@@ -91,12 +91,12 @@ public class MainActivity extends AppCompatActivity  {
 
                     Intent i=new Intent(MainActivity.this,OpeningActivity.class);
                     i.putExtra("name",firebaseAuth.getCurrentUser().getDisplayName());
-                    if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
-                        startActivity(i);}
-                    else {
-                        Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
-                        mAuth.signOut();
-                    }
+//                    if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
+                        startActivity(i);
+//                    else {
+//                        Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
+//                        mAuth.signOut();
+//                    }
 
 
 
@@ -223,15 +223,15 @@ public class MainActivity extends AppCompatActivity  {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent i=new Intent(MainActivity.this,OpeningActivity.class);
 
-                            if(user.getEmail().contains("itbhu")) {
+//                            if(user.getEmail().contains("itbhu")) {
                                 i.putExtra("name", user.getDisplayName());
                                 startActivity(i);
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
-
-                                mAuth.signOut();
-                            }
+//                            }
+//                            else {
+//                                Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
+//
+//                                mAuth.signOut();
+//                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());

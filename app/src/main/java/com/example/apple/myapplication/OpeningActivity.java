@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.EventLogTags;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +40,7 @@ public class OpeningActivity extends AppCompatActivity {
     List<EventModel> events= new ArrayList<>();
     TodayAdapter todayAdapter;
     EventAdapter eventAdapter;
+    private FirebaseAnalytics mFirebaseAnalytics;
     String Nameuser;
     String data;
 
@@ -357,20 +360,183 @@ public class OpeningActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),PlannerActivity.class));
             }
         });
-        RecyclerView dailyRecy=findViewById(R.id.daily_recy);
+        final RecyclerView dailyRecy=findViewById(R.id.daily_recy);
         LinearLayoutManager llm= new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false);
         dailyRecy.setLayoutManager(llm);
-        classes.add(new TodayModel("LT1","9:00-10:00","MSC301"));
-        classes.add(new TodayModel("ABLT4","10:00-11:00","MSC304"));
-        classes.add(new TodayModel("LT2","11:00-12:00","MSC308"));
-        todayAdapter=new TodayAdapter(classes);
-        dailyRecy.setAdapter(todayAdapter);
-//        RecyclerView eventRecy=findViewById(R.id.events_recy);
-//        LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
-//        eventRecy.setLayoutManager(llm1);
-//        events.add(new EventModel("xyz","xyz","xyz","xyz","xzy","xyz",R.drawable.white_curved_rectangle));
-//        eventAdapter=new EventAdapter(events);
-//        eventRecy.setAdapter(eventAdapter);
+        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference=firebaseDatabase.getReference();
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser mUser=firebaseAuth.getCurrentUser();
+        String email=mUser.getEmail();
+
+        final RecyclerView eventRecy=findViewById(R.id.events_recy);
+        LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false);
+        eventRecy.setLayoutManager(llm1);
+
+        databaseReference.child("Events").child("Councils").child("FMC Weekend").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String descr = null,council = null,contact = null,time = null;
+                for(DataSnapshot snapshot :dataSnapshot.getChildren())
+                {
+                    Log.e("TAGG","Event");
+                    if(snapshot.getKey().contains("Description2"))
+                    {
+                        descr=snapshot.getValue().toString();
+                    }
+                    if(snapshot.getKey().contains("Council"))
+                    {
+                        council=snapshot.getValue().toString();
+                    }
+                    if(snapshot.getKey().equals("Convenor"))
+                    {
+                        contact=snapshot.getValue().toString();
+                    }
+                    if(snapshot.getKey().contains("Dates"))
+                    {
+                        time=snapshot.getValue().toString();
+                    }
+                }
+                events.add(new EventModel("FMC Weekend",descr,council,contact,"Rajputana Ground",time));
+                eventAdapter=new EventAdapter(events);
+                eventRecy.setAdapter(eventAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+        if(email.contains("itbhu")) {
+            int year = 19 - Integer.parseInt(email.substring(email.indexOf("@") - 2, email.indexOf("@")));
+            String branchcode = null;
+            String dept = email.substring(email.indexOf("@") - 5, email.indexOf("@") - 2);
+            if (dept.contains("bme")) {
+                branchcode = "Biomedical";
+            } else if (dept.contains("bce")) {
+                branchcode = "Biochemical";
+            } else if (dept.contains("cer")) {
+                branchcode = "Ceramic";
+            } else if (dept.contains("che")) {
+                branchcode = "Chemical";
+            } else if (dept.contains("civ")) {
+                branchcode = "Civil";
+            } else if (dept.contains("cse")) {
+                branchcode = "Computer Science";
+            } else if (dept.contains("eee")) {
+                branchcode = "Electrical";
+            } else if (dept.contains("ece")) {
+                branchcode = "Electronics";
+            } else if (dept.contains("phy")) {
+                branchcode = "Physics";
+            } else if (dept.contains("chy")) {
+                branchcode = "Chemistry";
+            } else if (dept.contains("mst")) {
+                branchcode = "Material Science";
+            } else if (dept.contains("mat")) {
+                branchcode = "Maths and Computing";
+            } else if (dept.contains("mec")) {
+                branchcode = "Mechanical";
+            } else if (dept.contains("met")) {
+                branchcode = "Metallurgy";
+            } else if (dept.contains("min")) {
+                branchcode = "Mining";
+            } else if (dept.contains("phe")) {
+                branchcode = "Pharmaceutical Engineering";
+            }
+
+
+            Log.e("REG", "Monday of dept  Metallurgy ");
+            assert branchcode != null;
+            databaseReference.child("TimeTable").child("Branches").child(branchcode).child("Days").child("Monday").child("Year" + year).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Object>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, Object>>() {
+                    };
+                    Map<String, Object> objectHashMap = null;
+                    objectHashMap = dataSnapshot.getValue(objectsGTypeInd);
+                    if (objectHashMap != null) {
+                        ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
+                        for (Object obj : objectArrayList) {
+                            Log.e("Fragment Data", obj.toString());
+                            String code;
+                            String hall;
+                            String starttime;
+                            String endtime;
+                            if (obj.toString().indexOf(',', obj.toString().indexOf("code")) != -1) {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("code"), obj.toString().indexOf(',', obj.toString().indexOf("code"))));
+                                code = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("code") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("code")));
+                            } else {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("code")));
+                                code = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                            }
+                            if (obj.toString().indexOf(',', obj.toString().indexOf("venue")) != -1) {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("venue"), obj.toString().indexOf(',', obj.toString().indexOf("venue"))));
+                                hall = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("venue") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("venue")));
+                            } else {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("venue")));
+                                hall = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                            }
+                            if (obj.toString().indexOf(',', obj.toString().indexOf("start_time")) != -1) {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("start_time"), obj.toString().indexOf(',', obj.toString().indexOf("start_time"))));
+                                starttime = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("start_time") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("start_time")));
+                            } else {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("start_time")));
+                                starttime = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                            }
+                            if (obj.toString().indexOf(',', obj.toString().indexOf("end_time")) != -1) {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("end_time"), obj.toString().indexOf(',', obj.toString().indexOf("end_time"))));
+                                endtime = obj.toString().substring(obj.toString().indexOf("=", obj.toString().indexOf("end_time") + 4) + 1, obj.toString().indexOf(',', obj.toString().indexOf("end_time")));
+                            } else {
+                                Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("end_time")));
+                                endtime = obj.toString().substring(obj.toString().lastIndexOf("=") + 1, obj.toString().length() - 1);
+                            }
+
+                            classes.add(new TodayModel(hall, starttime + " - " + endtime, code));
+
+                        }
+                        List<TodayModel> arrangedclass = new ArrayList<>();
+                        int i = 800;
+                        int flag = 0;
+                        while (i < 1800) {
+                            for (TodayModel model : classes) {
+                                String start = model.getTime();
+                                if (start.contains(String.valueOf(i))) {
+                                    arrangedclass.add(model);
+
+                                }
+
+                            }
+                            i = i + 100;
+                        }
+                        TodayAdapter todayAdapter = new TodayAdapter(arrangedclass);
+                        dailyRecy.setAdapter(todayAdapter);
+
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+
+
+
+
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
