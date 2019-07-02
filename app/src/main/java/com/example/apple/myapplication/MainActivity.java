@@ -40,12 +40,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.crash.FirebaseCrash;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
     private static final int RC_SIGN_IN =100 ;
     Button btn_login;
-
+    String Nameuser,branchcode,dept,year;
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
 
@@ -87,16 +96,22 @@ public class MainActivity extends AppCompatActivity  {
         mAuthlistener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser() != null){
+                if(firebaseAuth.getCurrentUser() != null) {
 
-                    Intent i=new Intent(MainActivity.this,OpeningActivity.class);
-                    i.putExtra("name",firebaseAuth.getCurrentUser().getDisplayName());
-//                    if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
-                        startActivity(i);
-//                    else {
-//                        Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
-//                        mAuth.signOut();
-//                    }
+                    Intent i = new Intent(MainActivity.this, OpeningActivity.class);
+                    i.putExtra("name", firebaseAuth.getCurrentUser().getDisplayName());
+                    if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
+                            Intent intent=new Intent(getApplicationContext(),GatherDetailsActivity.class);
+                                            startActivity(intent);
+                }
+                    else if(firebaseAuth.getCurrentUser().getEmail().contains("tyagi@gmail"))
+                        {
+                            startActivity(i);
+                        }
+                        else {
+                        Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
+                        mAuth.signOut();
+                    }
 
 
 
@@ -223,15 +238,21 @@ public class MainActivity extends AppCompatActivity  {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent i=new Intent(MainActivity.this,OpeningActivity.class);
 
-//                            if(user.getEmail().contains("itbhu")) {
-                                i.putExtra("name", user.getDisplayName());
+                            if(user.getEmail().contains("itbhu")) {
+                               Intent intent=new Intent(getApplicationContext(),GatherDetailsActivity.class);
+                                intent.putExtra("name", user.getDisplayName());
+                                startActivity(intent);
+                            }
+                            else if( user.getEmail().contains("tyagi@gmail"))
+                            {
+                                i.putExtra("name",user.getDisplayName());
                                 startActivity(i);
-//                            }
-//                            else {
-//                                Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
-//
-//                                mAuth.signOut();
-//                            }
+                            }
+                            else {
+                                Toast.makeText(getApplicationContext(),"Login Through iitbhu id", Toast.LENGTH_SHORT).show();
+
+                                mAuth.signOut();
+                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());

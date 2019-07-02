@@ -317,16 +317,37 @@ GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteraction
             viewPager.setAdapter(sectionPageAdapter);
         }
 
-        else if(type.toLowerCase().contains("grades"))
+        else if(type.toLowerCase().contains("Pointer"))
         {
             textView.setText("Grades");
-            Log.e("Academic","GradesFragment bnwaya");
             GradesFragment gradesFragment =new GradesFragment();
             gradesFragment.setType("sp");
             sectionPageAdapter.addFragment(gradesFragment,"SPI Graph");
             GradesFragment gradesFragmentSP =new GradesFragment();
             gradesFragmentSP.setType("CP");
             sectionPageAdapter.addFragment(gradesFragmentSP,"CPI Graph");
+            viewPager.setAdapter(sectionPageAdapter);
+        }
+        else if(type.toLowerCase().contains("Grades"))
+        {
+            textView.setText("Grades");
+            RecyclerViewFragment gradesFragment1 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment1,"SEM 1");
+            RecyclerViewFragment gradesFragment2 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment2,"SEM 2");
+
+            RecyclerViewFragment gradesFragment3 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment3,"SEM 3");
+            RecyclerViewFragment gradesFragment4 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment4,"SEM 4");
+            RecyclerViewFragment gradesFragment5 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment5,"SEM 5");
+            RecyclerViewFragment gradesFragment6 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment6,"SEM 6");
+            RecyclerViewFragment gradesFragment7 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment7,"SEM 7");
+            RecyclerViewFragment gradesFragment8 =new RecyclerViewFragment();
+            sectionPageAdapter.addFragment(gradesFragment8,"SEM 8");
             viewPager.setAdapter(sectionPageAdapter);
         }
         else if(type.toLowerCase().contains("event")){

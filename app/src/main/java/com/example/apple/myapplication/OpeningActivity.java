@@ -212,7 +212,7 @@ public class OpeningActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_users:
-                    Intent intent=new Intent(getApplicationContext(),ProfileActivity.class);
+                    final Intent intent=new Intent(getApplicationContext(),ProfileActivity.class);
                     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
                     String branchcode = null;
 
@@ -316,6 +316,9 @@ public class OpeningActivity extends AppCompatActivity {
                                         {
                                             Nameuser=Name;
                                             data=obj.toString();
+                                            intent.putExtra("data",data);
+                                            intent.putExtra("name",Nameuser);
+                                            startActivity(intent);
                                             break;
                                         }
                                     }
@@ -340,9 +343,7 @@ public class OpeningActivity extends AppCompatActivity {
                         }
                     }
 
-                    intent.putExtra("data",data);
-                    intent.putExtra("name",Nameuser);
-                    startActivity(intent);
+
                     return true;
             }
             return false;
@@ -354,12 +355,6 @@ public class OpeningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening);
         Context wrapper = new ContextThemeWrapper(this, R.style.YOURSTYLE);
-        findViewById(R.id.planner_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),PlannerActivity.class));
-            }
-        });
         final RecyclerView dailyRecy=findViewById(R.id.daily_recy);
         LinearLayoutManager llm= new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false);
         dailyRecy.setLayoutManager(llm);
@@ -371,6 +366,8 @@ public class OpeningActivity extends AppCompatActivity {
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser mUser=firebaseAuth.getCurrentUser();
         String email=mUser.getEmail();
+
+
 
         final RecyclerView eventRecy=findViewById(R.id.events_recy);
         LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false);
@@ -519,6 +516,13 @@ public class OpeningActivity extends AppCompatActivity {
                         }
                         TodayAdapter todayAdapter = new TodayAdapter(arrangedclass);
                         dailyRecy.setAdapter(todayAdapter);
+                        dailyRecy.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent=new Intent(getApplicationContext(),PlannerActivity.class);
+                                startActivity(intent);
+                            }
+                        });
 
                     }
 

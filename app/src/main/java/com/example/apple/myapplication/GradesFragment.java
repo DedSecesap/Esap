@@ -58,7 +58,7 @@ public class GradesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        View view=inflater.inflate(R.layout.fragment_events, container, false);
+        View view=inflater.inflate(R.layout.fragment_pointer, container, false);
         bar_Graph = (GraphView) view.findViewById(R.id.line_graph);
         LineGraphSeries<DataPoint> barGraph_Data = null;
         DataPoint[] dataPoint;

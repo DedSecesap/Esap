@@ -378,7 +378,7 @@ public class RecyclerViewFragment extends Fragment {
 
 
                                 }
-                                AcademicActivityAdaptor academicActivityAdaptor=new AcademicActivityAdaptor(academicActivityModels,getActivity());
+                                ProfCardAdapter academicActivityAdaptor=new ProfCardAdapter(academicActivityModels,getActivity());
                                 dailyRecy.setAdapter(academicActivityAdaptor);
                             }
                         }

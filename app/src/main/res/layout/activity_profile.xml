@@ -1,227 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#4F4F4F"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000033"
     tools:context=".ProfileActivity">
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appbare_frams"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
-            android:id="@+id/appbare_frams"
             android:layout_height="match_parent"
-            >
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#4F4F4F"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders" />
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/drawer_open"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_home_black_24dp"/>
+
+
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/appbare_frams"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="210dp">
 
-                <android.support.design.widget.AppBarLayout
-                    android:id="@+id/appbar_session"
-                    android:layout_width="match_parent"
-                    android:layout_height="?android:attr/actionBarSize"
-                    android:theme="@style/appbar_main">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.v7.widget.Toolbar
-                            android:id="@+id/session_toolbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="top"
-                            android:background="#4F4F4F"
-                            app:contentInsetEnd="0dp"
-                            app:contentInsetLeft="0dp"
-                            app:contentInsetRight="0dp"
-                            app:contentInsetStart="0dp"
-                            app:layout_scrollFlags="snap"
-                            app:popupTheme="@style/PopupOverlay" />
-
-
-                        <include
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:id="@+id/menu_header"
-                            layout="@layout/waiter_appbar_orders" />
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="25dp"
-                            android:id="@+id/drawer_open"
-                            android:layout_marginStart="10dp"
-                            android:layout_gravity="center_vertical"
-                            app:srcCompat="@drawable/ic_home_black_24dp"/>
-
-
-
-
-                    </FrameLayout>
-
-                </android.support.design.widget.AppBarLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/NameText"
+                    android:text="Name"
+                    android:textColor="#fefefe"
+                    android:textSize="30dp" />
 
 
             </LinearLayout>
-        </FrameLayout>
-
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.052083332" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9557292" />
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.4" />
-
-        <TextView
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="My Clubs"
-            android:textSize="30sp"
-            android:layout_marginTop="3dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerTypegrid"
-            android:nestedScrollingEnabled="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view"
-            android:scrollbars="vertical" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/profile_bg"
-            app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp"
-            app:layout_constraintEnd_toEndOf="@id/guideline3"
-            app:srcCompat="@drawable/profile" />
-
-        <TextView
-            android:id="@+id/textView"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Roll No."
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imageView"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            android:textAlignment="center"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="234dp"
-            tools:layout_editor_absoluteY="81dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Name"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerTypegrid"
-            android:orientation="vertical"
-
-            android:id="@+id/Achievements_Layout"
-            android:layout_height="wrap_content">
-
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/RollText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Achievements"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="30dp"
+                android:text="Roll No."
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="270dp"
+                android:background="@drawable/profile_photo"/>
+            <TextView
+                android:id="@+id/Branchtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="125dp"
+                android:layout_marginLeft="30dp"
+                android:text="Branch"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp" />
 
-                android:gravity="start" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/button_frame"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/newsfeedButton"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/dormant_newsfeed_button"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:id="@+id/research_button"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/dormant_research_button"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/contact_button"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/dormant_contact_button"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/workex_button"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:src="@drawable/dormant_workex_button"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/dataframe"
+                android:background="#fff"
+                android:visibility="gone"
+                android:layout_below="@id/button_frame"
+            android:layout_height="250dp"
+            />
+
+
+
 
             <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:id="@+id/achievements_list"
-                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_below="@id/dataframe"
+                android:id="@+id/club_recy"
+                android:background="#000"
                 android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/Achievements_Layout"
-            android:orientation="vertical"
-            android:id="@+id/Involvements_Layout"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/Involvements_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-
-                android:text="Projects/Research"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:textStyle="bold"
-
-                android:gravity="start" />
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:id="@+id/involvemts_list"
-                android:layout_gravity="center"
-                android:scrollbars="vertical"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-
+        </RelativeLayout>
 
     </android.support.constraint.ConstraintLayout>
+
 </ScrollView>

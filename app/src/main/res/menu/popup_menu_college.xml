@@ -4,11 +4,11 @@
     <item
 
         android:id="@+id/one"
-        android:title="Attendance" />
+        android:title="My Pointer" />
 
     <item
         android:id="@+id/two"
-        android:title="Grades"/>
+        android:title="My Grades"/>
     <item
         android:id="@+id/three"
         android:title="My Courses"/>
