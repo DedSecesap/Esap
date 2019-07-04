@@ -4,17 +4,15 @@
     <item
 
         android:id="@+id/one"
-        android:title="Complaint Box"/>
+        android:title="Conversations"/>
 
-    <item
-        android:id="@+id/two"
-        android:title="Letter Box"/>
+
     <item
         android:id="@+id/three"
         android:title="Lost and Found Box" />
 
     <item
         android:id="@+id/four"
-        android:title="Chat Box" />
+        android:title="Branch Box" />
 
 </menu>

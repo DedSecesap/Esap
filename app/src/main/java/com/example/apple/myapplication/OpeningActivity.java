@@ -186,11 +186,6 @@ public class OpeningActivity extends AppCompatActivity {
                                     intent.putExtra("Type", item.getTitle());
                                     startActivity(intent);
                                     break;
-                                case R.id.two:
-                                    intent = new Intent(getApplicationContext(), InGeneralAcademicActivity.class);
-                                    intent.putExtra("Type", item.getTitle());
-                                    startActivity(intent);
-                                    break;
                                 case R.id.three:
                                     intent = new Intent(getApplicationContext(), InGeneralAcademicActivity.class);
                                     intent.putExtra("Type", item.getTitle());

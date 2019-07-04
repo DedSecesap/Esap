@@ -81,7 +81,7 @@ public class ChatActivityDefault extends AppCompatActivity implements GoogleApiC
     }
 
     private static final String TAG = "MainActivity";
-    public static final String MESSAGES_CHILD = "messages";
+    public static String MESSAGES_CHILD = "messages";
     private static final int REQUEST_INVITE = 1;
     private static final int REQUEST_IMAGE = 2;
     private static final String LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif";
@@ -119,10 +119,16 @@ public class ChatActivityDefault extends AppCompatActivity implements GoogleApiC
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         // Set default username is anonymous.
         mUsername = ANONYMOUS;
+
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // Initialize Firebase Remote Config.
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser mUser=firebaseAuth.getCurrentUser();
+        String email=mUser.getEmail();
+        String branchConfig=email.substring(email.indexOf('@')-5,email.indexOf('@'));
+        MESSAGES_CHILD="messages "+branchConfig;
 // Define Firebase Remote Config Settings.
         FirebaseRemoteConfigSettings firebaseRemoteConfigSettings =
                 new FirebaseRemoteConfigSettings.Builder()

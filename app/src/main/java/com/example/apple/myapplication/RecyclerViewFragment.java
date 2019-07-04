@@ -163,7 +163,7 @@ public class RecyclerViewFragment extends Fragment {
                         break;
                     case 4:
                         branchName="Civil";
-                        CourseCode="0650";
+                        CourseCode="0640";
                         break;
                     case 5:
                         branchName="Computer Science";

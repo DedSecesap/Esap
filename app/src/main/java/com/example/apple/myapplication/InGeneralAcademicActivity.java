@@ -968,7 +968,7 @@ GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteraction
 
         }
 
-        else if(type.toLowerCase().contains("complaint"))
+        else if(type.toLowerCase().contains("Conversations"))
         {
 
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmail.com"));
@@ -988,32 +988,7 @@ GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteraction
 //
 //            viewPager.setAdapter(sectionPageAdapter);
         }
-        else if (type.toLowerCase().contains("letter"))
-        {
 
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gmail.com"));
-            startActivity(browserIntent);
-//            Intent mailClient = new Intent(Intent.ACTION_VIEW);
-//            mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
-//            startActivity(mailClient);
-////            SendLetterFragment sendLetterFragment=new SendLetterFragment();
-//            //  searchFragmentAll.set(this);
-//            sectionPageAdapter.addFragment(sendLetterFragment,"Compose");
-//            textView.setText("Letter Box");
-//            PagerStripFragment searchFragmentPeople=new PagerStripFragment();
-//            //searchFragmentPeople.setResultInteraction(this);
-//            sectionPageAdapter.addFragment(searchFragmentPeople, "Inbox");
-//            PagerStripFragment searchFragmentRestaurant=new PagerStripFragment();
-//            //searchFragmentPeople.setResultInteraction(this);
-//            sectionPageAdapter.addFragment(searchFragmentRestaurant, "Sent");
-//            PagerStripFragment searchFragmenttreat=new PagerStripFragment();
-//            //searchFragmentPeople.setResultInteraction(this);
-//            sectionPageAdapter.addFragment(searchFragmenttreat, "Draft");
-//            PagerStripFragment searchFragmentpole=new PagerStripFragment();
-//            //searchFragmentPeople.setResultInteraction(this);
-//            sectionPageAdapter.addFragment(searchFragmentpole, "☆");
-//            viewPager.setAdapter(sectionPageAdapter);
-        }
         else if (type.toLowerCase().contains("lost"))
         {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://goo.gl/forms/0VcSBapsiAU7sNbm1"));
