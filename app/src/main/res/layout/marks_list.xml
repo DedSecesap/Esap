@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#003366"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:id="@+id/drawer_open"
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/root_view"
+        android:layout_marginTop="?attr/actionBarSize">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#003366">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabGravity="fill"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#000033"
+            app:tabTextColor="@color/colorAccent" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_on_click"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/lightgrey">
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+
+    </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="35dp">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Course Name"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="#003366"
+                android:background="@drawable/transparent_l_grey"
+                />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Course Code"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="#003366"
+                android:background="@drawable/transparent_l_grey"
+                />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Marks"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:textColor="#003366"
+                android:background="@drawable/transparent_l_grey"
+                />
+
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/marks_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"/>
+
+
+
+
+
+
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

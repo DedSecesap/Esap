@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:background="@color/lightgrey">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        android:background="@color/lightgrey"
+        >
+
+        <EditText
+            android:id="@+id/text1"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/round_button_lb"
+            android:textColor="@color/Black"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:hint="No"
+
+            />
+
+        <EditText
+            android:id="@+id/grades_name"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:layout_marginTop="0dp"
+            android:text="All Grades"
+            android:textColor="#3E4547"
+            android:textSize="15dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/round_light_grey"
+
+            />
+        <EditText
+            android:id="@+id/lower_limit"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:textSize="15dp"
+            android:textColor="@color/Black"
+            android:text="LL"
+            android:gravity="center"
+            android:layout_marginTop="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/transparent_light_b"
+
+            />
+        <EditText
+            android:id="@+id/upper_limit"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dp"
+            android:text="UL"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/Black"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/transparent_light_b"
+            />
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:text="Avg S"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/Black"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/transparent_light_b"
+            />
+
+
+        <CheckBox
+            android:id="@+id/grade_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:checked="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:outlineSpotShadowColor="@color/darkgrey"/>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

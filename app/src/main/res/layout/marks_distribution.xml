@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#003366">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#003366"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:id="@+id/drawer_open"
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/root_view"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#003366">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="#000033"
+                app:tabTextColor="@color/colorAccent" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/viewpager_on_click"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/lightgrey">
+            <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+        </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:layout_marginLeft="55dp"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="112dp"
+            >
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:text="Upper Limit"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+
+                android:textColor="#003366"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:text="Grades"
+                android:textColor="#003366"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ligtblue_lw"
+                android:gravity="center"
+                android:text="Lower Limit"
+                android:textAlignment="center"
+                android:textColor="#003366"
+                android:textSize="15dp" />
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="140dp"
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="100"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textColor="#003366"/>
+
+            <TextView
+                android:id="@+id/ul_a1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"
+                />
+
+            <TextView
+                android:id="@+id/ul_b"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"
+
+                />
+
+            <TextView
+                android:id="@+id/ul_b1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+            <TextView
+                android:id="@+id/ul_c"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"
+                />
+
+            <TextView
+                android:id="@+id/ul_c1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:id="@+id/ul_fail"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="175dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="A"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="A-"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="B"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="B-"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="C"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="C-"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Fail"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="140dp">
+
+            <TextView
+                android:id="@+id/ll_a"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+            <TextView
+                android:id="@+id/ll_a1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+            <TextView
+                android:id="@+id/ll_b"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textColor="#003366"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/ll_b1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textColor="#003366"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/ll_c"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+
+            <TextView
+                android:id="@+id/ll_c1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="0"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:background="@drawable/ligtblue_lw"
+                android:textAlignment="center"
+                android:textColor="#003366"/>
+        </LinearLayout>
+
+
+
+
+
+
+    </FrameLayout>
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

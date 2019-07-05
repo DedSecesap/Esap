@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/lightgrey">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#003366"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:id="@+id/drawer_open"
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        app:srcCompat="@drawable/ic_home_black_24dp" />
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="490dp"
+            android:background="@drawable/round_button_lb"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/proftext1"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textAlignment="textStart"
+                android:layout_margin="10dp"
+                android:background="@drawable/ligtblue_lw"
+                android:text="Tittle"
+
+                />
+                <ImageButton
+                    android:id="@+id/add_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/proftext2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/ligtblue_lw"
+                android:text="Message"
+                android:gravity="top"
+                android:textColor="@color/white"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/send_to_student"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textAlignment="textStart"
+                    android:background="@drawable/ligtblue_lw"
+                    android:text="To"
+                    android:layout_marginLeft="15dp"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/sendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

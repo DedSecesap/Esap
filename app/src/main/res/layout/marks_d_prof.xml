@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/lightgrey"
+    android:layout_height="match_parent"
+    tools:context=".InGeneralAcademicActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_session"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:theme="@style/appbar_main">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/session_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="#003366"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_scrollFlags="snap"
+                        app:popupTheme="@style/PopupOverlay" />
+
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders" />
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/drawer_open"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_home_black_24dp"/>
+
+
+
+
+                </FrameLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+
+        </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:id="@+id/root_view"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#003366">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabSelectedTextColor="#000033"
+                app:tabTextColor="@color/colorAccent"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/viewpager_on_click"
+            android:layout_width="match_parent"
+            android:layout_height="656dp"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/lightgrey">
+            <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+        </android.support.v4.view.ViewPager>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/round_button_lb"
+                android:text="NO"
+                android:textColor="@color/Black"
+                android:textSize="15dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:text="All Grades"
+                android:gravity="center"
+                android:elevation="-4dp"
+                android:textColor="@color/darkgrey"
+                />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:textSize="15dp"
+                android:textColor="@color/Black"
+                android:text="UL"
+                android:gravity="center"
+                android:background="@drawable/round_light_blue"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:text="LL"
+                android:gravity="center"
+                android:textColor="@color/Black"
+                android:background="@drawable/round_light_blue"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:textSize="15dp"
+                android:text="Avg S"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:textColor="@color/Black"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+
+                />
+
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/grade_d_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="129dp"
+            >
+
+        </ListView>
+
+
+
+    </FrameLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

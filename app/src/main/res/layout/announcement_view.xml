@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#E3EDF3"
+    android:layout_gravity="top">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/messengerImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:src="@drawable/ic_account_circle_black_36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <TextView
+        android:id="@+id/byprof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/Black"
+        app:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteX="80dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="60dp"
+        tools:layout_editor_absoluteX="60dp">
+
+
+        <TextView
+            android:id="@+id/proftext1"
+            android:layout_width="240dp"
+            android:layout_height="20dp"
+            android:layout_gravity="top"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/proftext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="bottom"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/prof_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="36dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
