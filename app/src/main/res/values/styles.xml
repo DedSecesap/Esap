@@ -25,12 +25,12 @@
     </style>
 
     <style name="YOURSTYLE">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:divider">#FFF</item>
-        <item name="android:colorBackground">#FFF</item>
+        <item name="android:textColor">#000033</item>
+        <item name="android:divider">#000033</item>
+        <item name="android:colorBackground">#33ccff</item>
         <item name="android:dividerHeight">2dp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:itemBackground">#4F4F4F</item>
+        <item name="android:itemBackground">#33ccff</item>
     </style>
     <!-- <style name="AppThemeWhiteActionBar" parent="AppThemeWithBar">
         <item name="actionBarStyle">@style/AppThemeWhiteActionBar.ActionBar</item>

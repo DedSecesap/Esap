@@ -12,7 +12,7 @@
     android:layout_height="wrap_content"
     android:textSize="22sp"
        android:id="@+id/title"
-    android:textColor="#FBFA09"
+    android:textColor="#33ccff"
     android:letterSpacing="-0.02"
     android:layout_gravity="center"
        >

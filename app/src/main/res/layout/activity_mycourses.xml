@@ -428,12 +428,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="430dp"
             android:background="@drawable/round_button_lb">
 
             <TextView
-                android:id="@+id/attend_perc"
+
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
@@ -443,13 +443,34 @@
                 android:textColor="@color/Black"
                 android:textSize="15dp" />
 
-            <EditText
-                android:id="@+id/attendance"
+            <TextView
+                android:id="@+id/attendance_perc"
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="125dp"
                 android:layout_marginTop="5dp"
                  />
+            <TextView
+
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Credits"
+                android:textColor="@color/Black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/credits_textview"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="292dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_marginBottom="3dp"
+                ></TextView>
+
 
 
         </RelativeLayout>
@@ -487,7 +508,18 @@
 
         </RelativeLayout>
 
-
+<Button
+    android:layout_width="100dp"
+    android:layout_height="30dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="630dp"
+    android:elevation="5dp"
+    android:textSize="8dp"
+    android:text="See distribution"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:background="@drawable/round_db"
+    />
 
 
 
