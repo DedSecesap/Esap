@@ -17,6 +17,8 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.inappmessaging.FirebaseInAppMessaging;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -360,10 +364,71 @@ public class OpeningActivity extends AppCompatActivity {
 
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser mUser=firebaseAuth.getCurrentUser();
-        String email=mUser.getEmail();
+        final String email=mUser.getEmail();
 
 
+        FirebaseMessaging.getInstance().subscribeToTopic(email.substring(email.indexOf("@")-5,email.indexOf("@"))).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ email.substring(email.indexOf("@")-5,email.indexOf("@")), Toast.LENGTH_SHORT).show();
+            }
+        });
 
+
+        FirebaseMessaging.getInstance().subscribeToTopic("All").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ " All", Toast.LENGTH_SHORT).show();
+            }
+        });
+        FirebaseMessaging.getInstance().subscribeToTopic("Lost").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ " Lost", Toast.LENGTH_SHORT).show();
+            }
+        });
+        FirebaseMessaging.getInstance().subscribeToTopic("Found").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ " Found", Toast.LENGTH_SHORT).show();
+            }
+        });
+        FirebaseMessaging.getInstance().subscribeToTopic(email.substring(email.indexOf("@")-2,email.indexOf("@"))).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ email.substring(email.indexOf("@")-2,email.indexOf("@")), Toast.LENGTH_SHORT).show();
+            }
+        });
+        FirebaseMessaging.getInstance().subscribeToTopic(email.substring(email.indexOf("@")-5,email.indexOf("@")-2)).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String msg = getString(R.string.msg_subscribed);
+                if (!task.isSuccessful()) {
+                    msg = getString(R.string.msg_subscribe_failed);
+                }
+                Toast.makeText(getApplicationContext(), msg+ email.substring(email.indexOf("@")-5,email.indexOf("@")-2), Toast.LENGTH_SHORT).show();
+            }
+        });
         final RecyclerView eventRecy=findViewById(R.id.events_recy);
         LinearLayoutManager llm1= new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false);
         eventRecy.setLayoutManager(llm1);
