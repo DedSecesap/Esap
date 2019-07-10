@@ -69,30 +69,32 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
         Log.d(TAG, "FCM Token: " + token);
         // Once a token is generated, we subscribe to topic.
-        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-        String email=firebaseUser.getEmail();
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic(FRIENDLY_ENGAGE_TOPIC);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser != null) {
+            String email = firebaseUser.getEmail();
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(FRIENDLY_ENGAGE_TOPIC);
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic(email.substring(email.indexOf("@")-5,email.indexOf("@")));
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 5, email.indexOf("@")));
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic(email.substring(email.indexOf("@")-5,email.indexOf("@")-2));
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 5, email.indexOf("@") - 2));
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic(email.substring(email.indexOf("@")-2,email.indexOf("@")));
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 2, email.indexOf("@")));
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic("All");
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("All");
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic("Lost");
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("Lost");
 
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic("Found");
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("Found");
 
+        }
     }
 
     private void sendRegistrationToServer(String token) {
