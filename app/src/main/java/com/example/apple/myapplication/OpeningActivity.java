@@ -381,6 +381,21 @@ public class OpeningActivity extends AppCompatActivity {
         FirebaseUser mUser=firebaseAuth.getCurrentUser();
         final String email=mUser.getEmail();
 
+        RecyclerView recyclerView=findViewById(R.id.announcement_recy);
+        List<AnnouncementModel> announcementModels=new ArrayList<>();
+        announcementModels.add(new AnnouncementModel("Dummy Announcement","This announcement is for the purpose of setting layout accordingly to avoid furthur delay","Shambhav Tyagi"));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.HORIZONTAL,false));
+        AnnouncementAdapter announcementAdapter=new AnnouncementAdapter(announcementModels);
+        recyclerView.setAdapter(announcementAdapter);
+
+        findViewById(R.id.announcement_text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),AnnouncementActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         FirebaseMessaging.getInstance().subscribeToTopic(email.substring(email.indexOf("@")-5,email.indexOf("@"))).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
