@@ -99,13 +99,12 @@ public class MainActivity extends AppCompatActivity  {
                 if(firebaseAuth.getCurrentUser() != null) {
 
                     Intent i = new Intent(MainActivity.this, OpeningActivity.class);
-                    startActivity(i);
                     i.putExtra("name", firebaseAuth.getCurrentUser().getDisplayName());
                     if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
                             Intent intent=new Intent(getApplicationContext(),GatherDetailsActivity.class);
-//                                            startActivity(intent);
+                                            startActivity(intent);
                 }
-                    else if(firebaseAuth.getCurrentUser().getEmail().contains("tyagi@gmail")||firebaseAuth.getCurrentUser().getEmail().contains("chutiya"))
+                    else if(firebaseAuth.getCurrentUser().getEmail().contains("tyagi@gmail")||firebaseAuth.getCurrentUser().getEmail().contains("sharan@gmail"))
                         {
                             startActivity(i);
                         }
@@ -244,7 +243,7 @@ public class MainActivity extends AppCompatActivity  {
                                 intent.putExtra("name", user.getDisplayName());
                                 startActivity(intent);
                             }
-                            else if( user.getEmail().contains("tyagi@gmail"))
+                            else if( user.getEmail().contains("tyagi@gmail")||user.getEmail().contains("sharan@gmail"))
                             {
                                 i.putExtra("name",user.getDisplayName());
                                 startActivity(i);
