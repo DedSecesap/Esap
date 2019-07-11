@@ -79,15 +79,15 @@ public class ProfCardAdapter extends RecyclerView.Adapter<ProfCardAdapter.ViewHo
             String data=child.getDetails();
             String designation;
             String imageurl = null;
-//            if(data.indexOf('=',data.lastIndexOf("Designation")+2)!=-1)
-//            {
-//                designation=data.substring(data.indexOf('=',data.indexOf("Designation"))+1,data.indexOf(",",data.lastIndexOf("Designation")));
-//            }
-//            else
-//            {
-//                designation=data.substring(data.indexOf('=',data.lastIndexOf("Designation"))+1,data.indexOf('}'));
-//            }
-//            mDesignation.setText(designation);
+            if(data.indexOf('=',data.lastIndexOf("Designation")+2)!=-1)
+            {
+                designation=data.substring(data.indexOf('=',data.indexOf("Designation"))+1,data.indexOf(",",data.lastIndexOf("Designation")));
+            }
+            else
+            {
+                designation=data.substring(data.indexOf('=',data.lastIndexOf("Designation"))+1,data.indexOf('}'));
+            }
+            mDesignation.setText(designation);
             if(data.contains("Image"))
             if(data.indexOf('=',data.lastIndexOf("Image")+2)!=-1)
             {

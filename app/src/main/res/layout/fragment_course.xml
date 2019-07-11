@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:id="@+id/course_code"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_button_lb"
+                android:text="cousre code"
+                android:textColor="@color/Black"
+                android:textSize="20dp"
+
+                />
+
+
+
+            <TextView
+                android:id="@+id/course_name"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_button_lb"
+                android:text="Cousre name"
+                android:textColor="@color/Black"
+                android:textSize="20dp"
+
+                />
+
+
+        </LinearLayout>
+
+
+
+
+        <TableLayout
+            android:layout_width="360dp"
+            android:layout_height="265dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="75dp"
+            android:backgroundTint="@color/milkwhite"
+            android:src="@drawable/ligtblue_lw"
+
+            >
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="60dp"
+                android:padding="2dp"
+
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:text="MARKS"
+                android:textColor="#000033"
+                android:textSize="25dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundTint="@color/Black"
+                android:padding="2dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_light_blue"
+                        android:text="Mid sem"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="3dp"
+
+                        android:background="@drawable/round_light_blue"
+                        android:gravity="center"
+                        android:text="End sem"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp" />
+
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_light_blue"
+                        android:text="Assignment"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_light_blue"
+                        android:text="Quiz"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_light_blue"
+                        android:text="Others"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="160dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_light_blue"
+                        android:text="Total"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/marks_ms"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="25"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/marks_es"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="35"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/marks_assi"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="8"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/marks_quiz"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="9"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/marks_other"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp"
+                        android:layout_margin="3dp"/>
+                    <TextView
+                        android:id="@+id/marks_total"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_darkgrey"
+                        android:text="77"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15sp"
+                        android:layout_margin="3dp"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/marks_ms1"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="30"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/marks_es1"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="50"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/marks_assi1"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="10"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/marks_quiz1"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="10"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"/>
+
+                    <TextView
+                        android:id="@+id/marks_other1"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="0"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/round_button_lb"
+                        android:text="100"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="15dp"
+                        android:layout_margin="3dp"/>
+
+
+
+
+
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="370dp"
+            android:background="@drawable/round_button_lb">
+
+            <TextView
+
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Attendance %"
+                android:textColor="@color/Black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/attendance_perc"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="70"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Credits"
+                android:textColor="@color/Black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/credits_textview"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="292dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:gravity="center"
+                android:text="11">
+
+            </TextView>
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="198dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="450dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="165dp"
+                android:background="@drawable/round_light_blue"
+                android:gravity="center"
+                android:text="Branch"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:id="@+id/branch_recy"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="192dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/round_button_lb">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="100dp"
+            android:id="@+id/see_distri"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="630dp"
+
+            android:elevation="5dp"
+            android:textSize="8dp"
+            android:text="See distribution"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/round_db"
+            />
+
+</FrameLayout>
+</ScrollView>

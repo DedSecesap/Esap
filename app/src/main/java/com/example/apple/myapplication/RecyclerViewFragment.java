@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -86,12 +87,13 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
             View    view =inflater.inflate(R.layout.fragment_electric_prof, container, false);
         final RecyclerView dailyRecy=view.findViewById(R.id.item_recy);
+
         LinearLayoutManager llm= new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         dailyRecy.setLayoutManager(llm);
         final List<AcademicActivityModel> academicActivityModels=new ArrayList<>();
@@ -225,7 +227,7 @@ public class RecyclerViewFragment extends Fragment {
                             if (objectHashMap != null) {
                                 ArrayList<Object> objectArrayList = new ArrayList<Object>(objectHashMap.values());
                                 for (Object obj : objectArrayList) {
-                                    if (!(obj.toString().contains("IDD")||obj.toString().contains("MetSoc")||obj.toString().contains("Boys")||obj.toString().contains("Girls")||obj.toString().contains("Metallurgy")||obj.toString().contains("Biochemical")||obj.toString().contains("Biomedical")||obj.toString().contains("Ceramics")||obj.toString().contains("Chemical")||obj.toString().contains("Computer")||obj.toString().contains("Civil")||obj.toString().contains("Electronics")||obj.toString().contains("Mechanical")||obj.toString().contains("Pharma")||obj.toString().contains("Engineering ")||obj.toString().contains("Morvi")||obj.toString().contains("BTech"))) {
+                                    if (!(obj.toString().contains("Boys")||obj.toString().contains("Girls"))) {
                                         Log.e("Fragment Data", obj.toString());
                                         if (obj.toString().indexOf(',', obj.toString().indexOf("Name")) != -1) {
                                             Log.e("Fragment Data", obj.toString().substring(obj.toString().indexOf("Name"), obj.toString().indexOf(',', obj.toString().indexOf("Name"))));
@@ -498,7 +500,7 @@ public class RecyclerViewFragment extends Fragment {
                                 }
                                 i = i + 100;
                             }
-                            TodayAdapter todayAdapter = new TodayAdapter(arrangedclass);
+                            TodayAdapter todayAdapter = new TodayAdapter(arrangedclass,getContext());
                             dailyRecy.setAdapter(todayAdapter);
 
                         }

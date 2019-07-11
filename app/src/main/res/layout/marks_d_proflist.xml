@@ -24,7 +24,7 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/round_button_lb"
             android:textColor="@color/Black"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:gravity="center"
             android:hint="No"
 
@@ -40,25 +40,26 @@
             android:layout_marginTop="0dp"
             android:text="All Grades"
             android:textColor="#3E4547"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:background="@drawable/round_light_grey"
 
             />
+
         <TextView
             android:id="@+id/lower_limit"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="25dp"
-            android:textSize="15dp"
-            android:textColor="@color/Black"
-            android:text="LL"
-            android:gravity="center"
             android:layout_marginTop="0dp"
+            android:background="@drawable/transparent_light_b"
+            android:gravity="center"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:background="@drawable/transparent_light_b"
+            android:text="LL"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
 
             />
         <TextView
@@ -66,7 +67,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="UL"
             android:gravity="center"
             android:layout_gravity="bottom"
@@ -76,10 +77,11 @@
             android:background="@drawable/transparent_light_b"
             />
         <TextView
+            android:id="@+id/avg_students"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="Avg S"
             android:gravity="center"
             android:layout_gravity="bottom"

@@ -16,9 +16,10 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.ViewHolder>{
     List<TodayModel> classesToday;
     Context context;
 
-    public TodayAdapter(List<TodayModel> classes)
+    public TodayAdapter(List<TodayModel> classes,Context context)
     {
         this.classesToday=classes;
+        this.context=context;
     }
 
     @NonNull
@@ -62,6 +63,14 @@ public class TodayAdapter extends RecyclerView.Adapter<TodayAdapter.ViewHolder>{
             Name.setText(classT.getHall());
             Time.setText(classT.getTime());
             Code.setText(classT.getCode());
+            Name.getRootView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(context,PlannerActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
         }
 
     }

@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -67,8 +69,33 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
         Log.d(TAG, "FCM Token: " + token);
         // Once a token is generated, we subscribe to topic.
-        FirebaseMessaging.getInstance()
-                .subscribeToTopic(FRIENDLY_ENGAGE_TOPIC);
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        if(firebaseUser!=null) {
+            String email = firebaseUser.getEmail();
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(FRIENDLY_ENGAGE_TOPIC);
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 5, email.indexOf("@")));
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 5, email.indexOf("@") - 2));
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic(email.substring(email.indexOf("@") - 2, email.indexOf("@")));
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("All");
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("Lost");
+
+            FirebaseMessaging.getInstance()
+                    .subscribeToTopic("Found");
+        }
+
     }
 
     private void sendRegistrationToServer(String token) {

@@ -99,12 +99,13 @@ public class MainActivity extends AppCompatActivity  {
                 if(firebaseAuth.getCurrentUser() != null) {
 
                     Intent i = new Intent(MainActivity.this, OpeningActivity.class);
+                    startActivity(i);
                     i.putExtra("name", firebaseAuth.getCurrentUser().getDisplayName());
                     if(firebaseAuth.getCurrentUser().getEmail().contains("itbhu")){
                             Intent intent=new Intent(getApplicationContext(),GatherDetailsActivity.class);
-                                            startActivity(intent);
+//                                            startActivity(intent);
                 }
-                    else if(firebaseAuth.getCurrentUser().getEmail().contains("tyagi@gmail"))
+                    else if(firebaseAuth.getCurrentUser().getEmail().contains("tyagi@gmail")||firebaseAuth.getCurrentUser().getEmail().contains("chutiya"))
                         {
                             startActivity(i);
                         }

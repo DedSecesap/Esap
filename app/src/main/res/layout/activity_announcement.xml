@@ -81,7 +81,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:orientation="vertical"
+        android:id="@+id/add_frame"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="490dp"
         android:background="@drawable/round_button_lb"
@@ -163,5 +165,17 @@
 
 
     </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="30dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/add_button" />
+
+
 
 </android.support.constraint.ConstraintLayout>

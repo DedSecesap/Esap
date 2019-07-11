@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MarksDistributionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/round_button_lb"
+            android:text="NO"
+            android:textColor="@color/Black"
+            android:textSize="15dp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:text="All Grades"
+            android:gravity="center"
+            android:elevation="-4dp"
+            android:textColor="@color/darkgrey"
+            />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:textSize="15dp"
+            android:textColor="@color/Black"
+            android:text="LL"
+            android:gravity="center"
+            android:background="@drawable/round_light_blue"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dp"
+            android:text="UL"
+            android:gravity="center"
+            android:textColor="@color/Black"
+            android:background="@drawable/round_light_blue"
+            />
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:textSize="15dp"
+            android:text="Avg S"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/Black"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+
+            />
+
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/grade_d_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</FrameLayout>

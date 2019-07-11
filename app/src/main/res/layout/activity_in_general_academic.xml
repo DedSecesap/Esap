@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 app:tabGravity="fill"
                 app:tabMode="scrollable"
-                app:tabSelectedTextColor="#003366"
+                app:tabSelectedTextColor="#fff"
                 app:tabTextColor="#33ccff" />
         </android.support.design.widget.AppBarLayout>
 
@@ -105,8 +105,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-17dp"></FrameLayout>
+        android:layout_marginTop="10dp"
+        >
+
+    </FrameLayout>
 
 
     <TextView

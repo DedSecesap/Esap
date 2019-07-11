@@ -15,4 +15,10 @@
         android:id="@+id/four"
         android:title="Branch Box"/>
 
+    <item
+
+        android:id="@+id/two"
+        android:title="Announcement Box"/>
+
+
 </menu>

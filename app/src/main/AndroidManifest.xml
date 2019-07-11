@@ -4,7 +4,7 @@
     package="com.example.apple.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".Fireapp"
@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ChatActivityDefault"></activity>
-        <service android:name=".UpdateWidgetService"></service>
+        <activity android:name=".AnnouncementActivity"></activity>
+        <activity android:name=".MyBranchActivity" />
+        <activity android:name=".ChatActivityDefault" />
 
-        <service android:name=".MyFirebaseMessagingService"
+        <service android:name=".UpdateWidgetService" />
+        <service
+            android:name=".MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -59,18 +62,18 @@
         <activity android:name=".ClubDetailsActivity" />
         <activity android:name=".AcademicDetailsActivity" />
         <activity android:name=".ClubActivity" />
+
         <receiver
+            android:name=".MyWidgetProvider"
             android:icon="@drawable/ic_account_circle_black_36dp"
-            android:label="CDi"
-            android:name="MyWidgetProvider" >
-            <intent-filter >
+            android:label="CDi">
+            <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info" />
-
         </receiver>
     </application>
 

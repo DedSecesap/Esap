@@ -17,11 +17,18 @@
         android:id="@+id/four"
         android:title="All Students"/>
     <item
+        android:id="@+id/seven"
+        android:title="My Branch"/>
+
+    <item
         android:id="@+id/five"
         android:title="College Events"/>
     <item
         android:id="@+id/six"
         android:title="Holidays"/>
+    <item
+        android:id="@+id/eight"
+        android:title="My Planner"/>
 
 
 </menu>
