@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:background="@drawable/landingpage_box"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/round_button_lb"
     android:layout_margin="20dp"
-    android:layout_height="160dp">
+    android:layout_height="160dp"
+    >
 
 
     <TextView
         android:layout_width="match_parent"
-        android:textColor="#333"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:fontFamily="d"
         android:text="LT1"
@@ -35,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_marginBottom="30dp"
+        android:textColor="@color/white"
         android:layout_marginStart="20dp"
         android:text="Hello World"/>
 
@@ -44,6 +47,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="30dp"
         android:id="@+id/codee"
+        android:textColor="@color/white"
         android:layout_marginEnd="20dp"
         android:text="Hello World"/>
 

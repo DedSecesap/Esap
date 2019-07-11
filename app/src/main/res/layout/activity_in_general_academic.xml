@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#4F4F4F"
+    android:background="@color/lightgrey"
     android:layout_height="match_parent"
     tools:context=".InGeneralAcademicActivity">
     <FrameLayout
@@ -76,39 +76,37 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4F4F4F">
+            android:background="#003366">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabSelectedTextColor="#000033"
-                app:tabTextColor="@color/colorAccent"
                 app:tabGravity="fill"
                 app:tabMode="scrollable"
-                />
+                app:tabSelectedTextColor="#003366"
+                app:tabTextColor="#33ccff" />
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
-            android:layout_marginTop="?attr/actionBarSize"
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/viewpager_on_click"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#33ccff">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/lightgrey">
             <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
 
         </android.support.v4.view.ViewPager>
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/search_fragment_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
-        android:layout_marginTop="15dp"
-        android:id="@+id/search_fragment_placeholder"
-        >
-    </FrameLayout>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-17dp"></FrameLayout>
 
 
     <TextView

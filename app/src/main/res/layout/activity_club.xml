@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#4F4F4F"
+    android:background="@color/lightgrey"
     tools:context=".ClubActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/lightgrey">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -36,7 +37,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="top"
-                            android:background="#4F4F4F"
+                            android:background="#003366"
                             app:contentInsetEnd="0dp"
                             app:contentInsetLeft="0dp"
                             app:contentInsetRight="0dp"
@@ -97,9 +98,10 @@
             android:layout_marginStart="20dp"
             android:text="Name Of Club"
             app:layout_constraintTop_toBottomOf="@id/appbare_frams"
+            android:gravity="center"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="#95f033"
+            android:textColor="#000033"
 
             />
 
@@ -128,7 +130,7 @@
             app:layout_constraintTop_toTopOf="@id/imageView"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="81dp" />
@@ -139,14 +141,14 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="0"
-            android:background="#0f0f0d"
+
 
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/static_text"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             android:textAlignment="center"
-            android:textColor="#95f033"
+            android:textColor="#000033"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="81dp" />
@@ -158,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="ShortDescription"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -175,14 +177,15 @@
             android:orientation="vertical"
             android:layout_marginTop="10dp"
             android:id="@+id/Achievements_Layout"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_db"
+            android:elevation="6dp">
 
             <TextView
                 android:id="@+id/textViewDescr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="#0f0f0d"
+                android:layout_marginTop="14dp"
                 android:text="BigDescription"
                android:gravity="center"
                 android:textColor="@android:color/white"
@@ -240,9 +243,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-
                 android:text="Students of Club"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
                 android:textStyle="bold"
 
@@ -253,7 +255,9 @@
                 android:id="@+id/student_list"
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_db"
+                android:padding="2dp">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
@@ -273,7 +277,7 @@
                 android:layout_marginTop="16dp"
 
                 android:text="Contacts"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
                 android:textStyle="bold"
 
@@ -284,7 +288,8 @@
                 android:id="@+id/contact_list"
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_db">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>

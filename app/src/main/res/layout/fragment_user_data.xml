@@ -2,15 +2,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UserDataFragment">
+    android:layout_height="wrap_content"
+    tools:context=".UserDataFragment"
+    android:background="@drawable/round_light_blue">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email_text"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textColor="@color/white"
         android:layout_gravity="top"
         android:text="@string/hello_blank_fragment" />
 
@@ -18,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/phone_text"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:layout_gravity="bottom"
         android:layout_marginTop="100dp"
         android:text="@string/hello_blank_fragment" />
@@ -26,6 +29,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/recycler_data"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         >
     </android.support.v7.widget.RecyclerView>

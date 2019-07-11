@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#4F4F4F"
+    android:background="#22213688"
     tools:context=".ProfessorActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -36,7 +36,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="top"
-                            android:background="#4F4F4F"
+                            android:background="#003366"
                             app:contentInsetEnd="0dp"
                             app:contentInsetLeft="0dp"
                             app:contentInsetRight="0dp"
@@ -95,14 +95,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
             android:text="Designation :"
-            android:textSize="30sp"
-            android:layout_marginTop="3dp"
-            android:textColor="@android:color/white"
+            android:textColor="#000033"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="10dp"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.127"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -112,9 +112,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Designation"
-            android:textSize="24sp"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:textColor="#000033"
             android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/imageView"
             android:layout_marginStart="10dp"
@@ -131,7 +131,7 @@
             android:background="@drawable/profile_bg"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
             app:srcCompat="@drawable/profile" />
 
@@ -140,29 +140,29 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Name"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imageView"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="234dp"
-            tools:layout_editor_absoluteY="81dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toTopOf="@id/imageView" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:text="Branch"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -174,6 +174,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/view"
             android:orientation="vertical"
+            android:background="@color/lightgrey"
 
             android:id="@+id/Achievements_Layout"
             android:layout_height="wrap_content">
@@ -186,8 +187,8 @@
                 android:text="Courses"
                 android:layout_gravity="center"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textColor="#000033"
+                android:textSize="22sp"
                 android:textStyle="bold"
 
                 android:gravity="start" />
@@ -196,43 +197,50 @@
                 android:layout_width="match_parent"
                 android:id="@+id/courses_list"
                 android:gravity="center"
-                android:background="#0f0f0d"
-                android:textColor="#95f033"
+                android:background="@drawable/round_db"
+                android:textColor="@color/white"
                 android:text="Courses"
                 android:textSize="20sp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:elevation="6dp">
 
             </TextView>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/Achievements_Layout"
-            android:orientation="vertical"
             android:id="@+id/Involvements_Layout"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/lightgrey"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/Achievements_Layout">
 
             <TextView
                 android:id="@+id/Involvements_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
 
+                android:gravity="start"
                 android:text="Other Responsibilites"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
-                android:textStyle="bold"
 
-                android:gravity="start" />
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
                 android:id="@+id/involvemts_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:background="@drawable/round_button_lb"
+                android:elevation="2dp"
+                android:padding="5dp"
+                android:scrollbars="vertical">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
@@ -244,7 +252,8 @@
             app:layout_constraintTop_toBottomOf="@+id/Involvements_Layout"
             android:orientation="vertical"
             android:id="@+id/research_layout"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/lightgrey">
 
             <TextView
                 android:id="@+id/research_textview"
@@ -253,7 +262,7 @@
                 android:layout_marginTop="16dp"
 
                 android:text="Research"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
                 android:textStyle="bold"
 
@@ -264,7 +273,10 @@
                 android:id="@+id/research_list"
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button_lb"
+                android:padding="5dp"
+                android:elevation="2dp">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>

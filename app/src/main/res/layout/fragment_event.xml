@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#4F4F4F"
+    android:background="#22213688"
     tools:context=".EventFragment">
 
     <android.support.constraint.ConstraintLayout
@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.052083332" />
+            app:layout_constraintGuide_begin="21dp" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline2"
@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.9557292" />
+
         <android.support.constraint.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
@@ -37,13 +38,11 @@
             android:id="@+id/imageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:backgroundTint="#4f4f4f"
-            android:tintMode="src_in"
+            android:layout_marginTop="20dp"
             android:background="@drawable/events_img"
-            app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/clubName"
-            android:layout_marginTop="10dp"
+            android:tintMode="src_in"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="@id/guideline"
 
             app:srcCompat="@drawable/events_img" />
 
@@ -52,59 +51,59 @@
             android:id="@+id/static_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Members"
             android:layout_marginTop="20dp"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/imageView"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            android:text="Members"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toTopOf="@id/imageView"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="81dp" />
+
         <TextView
             android:id="@+id/textView"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:background="#0f0f0d"
             android:layout_marginBottom="10dp"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/static_text"
-            app:layout_constraintBottom_toTopOf="@+id/textViewDate"
+            android:text="0"
             android:textAlignment="center"
-            android:textColor="#95f033"
+            android:textColor="#000033"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/static_text"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="81dp" />
+
         <TextView
             android:id="@+id/textViewDate"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date"
-            android:background="#0f0f0d"
             android:layout_marginTop="10dp"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:text="Date"
             android:textAlignment="center"
-            android:textColor="#95f033"
-            android:textStyle="bold"
+            android:textColor="#000033"
             android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="81dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="ShortDescription"
-            android:textColor="#fff"
+            android:textColor="#000033"
             android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -112,44 +111,45 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
 
-
         <LinearLayout
+            android:id="@+id/Achievements_Layout"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_db"
+            android:elevation="6dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:id="@+id/Achievements_Layout"
-            android:layout_height="wrap_content">
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <TextView
                 android:id="@+id/textViewDescr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="#0f0f0d"
-                android:text="BigDescription"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:text="BigDescription"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
 
                 />
 
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Prof. in charge :"
-            android:textSize="25sp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
+            android:text="Prof. in charge :"
+            android:textColor="#000033"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="10dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Achievements_Layout" />
@@ -158,78 +158,89 @@
             android:id="@+id/prof_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Designation"
+            android:textColor="#000033"
             android:textSize="24sp"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
             android:textStyle="italic"
-            app:layout_constraintTop_toBottomOf="@id/Achievements_Layout"
-            android:layout_marginStart="10dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/view"
-            />
+            app:layout_constraintTop_toBottomOf="@id/Achievements_Layout" />
+
 
 
         <LinearLayout
+            android:id="@+id/research_layout"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/lightgrey"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            android:orientation="vertical"
-            android:id="@+id/research_layout"
-            android:layout_height="wrap_content">
+            app:layout_constraintTop_toBottomOf="@+id/view">
 
             <TextView
                 android:id="@+id/research_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
                 android:layout_marginTop="16dp"
-
                 android:text="Core Team"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
-                android:textStyle="bold"
 
-                android:layout_gravity="center" />
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
                 android:id="@+id/student_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/round_light_blue"
                 android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:elevation="5dp"
+                android:padding="5dp">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/contact_layout"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/lightgrey"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/research_layout"
-            android:orientation="vertical"
-            android:id="@+id/contact_layout"
-            android:layout_height="wrap_content">
+            app:layout_constraintTop_toBottomOf="@+id/research_layout">
 
             <TextView
                 android:id="@+id/Contact_Textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
                 android:layout_marginTop="16dp"
-
                 android:text="Contacts"
-                android:textColor="@android:color/white"
+                android:textColor="#000033"
                 android:textSize="24sp"
-                android:textStyle="bold"
 
-                android:layout_gravity="center" />
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
                 android:id="@+id/contact_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scrollbars="vertical"
-                android:layout_height="wrap_content">
+                android:layout_margin="5dp"
+                android:background="@drawable/round_light_blue"
+                android:scrollbars="horizontal"
+                android:elevation="5dp"
+                android:padding="5dp">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>

@@ -11,7 +11,9 @@
         android:id="@+id/messageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"/>
+        android:layout_above="@+id/linearLayout"
+        android:padding="2dp"
+        android:background="@color/lightgrey"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,28 +22,47 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/lightgrey"
+        >
 
         <ImageView
             android:id="@+id/addMessageImageView"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
-            ads:srcCompat="@drawable/ic_add_black_24dp"/>
+            android:padding="4dp"
+            android:background="@color/lightgrey"
+            ads:srcCompat="@drawable/ic_add_black_24dp"
+            android:backgroundTint="@color/lightgrey"/>
 
         <EditText
             android:id="@+id/messageEditText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/round_button_lb"
+            android:paddingLeft="2dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="4dp" />
 
-        <Button
+        <ImageButton
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:enabled="false"
-            android:text="SEND"/>
+            android:text="SEND"
+            android:layout_marginBottom="4dp"
+            android:textColor="#000033"
+            android:src="@drawable/send_button"
+            android:background="@color/lightgrey"
+
+            />
 
     </LinearLayout>
 

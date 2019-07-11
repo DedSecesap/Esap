@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="top"
-                        android:background="#4F4F4F"
+                        android:background="#003366"
                         app:contentInsetEnd="0dp"
                         app:contentInsetLeft="0dp"
                         app:contentInsetRight="0dp"
@@ -100,12 +100,14 @@
                 android:text="Roll No."
                 android:textColor="@color/colorAccent"
                 android:textSize="20dp" />
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginStart="260dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginStart="270dp"
-                android:background="@drawable/profile_photo"/>
+                android:layout_marginEnd="51dp"
+                android:background="@drawable/profile_photo" />
             <TextView
                 android:id="@+id/Branchtext"
                 android:layout_width="wrap_content"
@@ -117,39 +119,50 @@
                 android:textSize="20dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
                 android:id="@+id/button_frame"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal"
+                android:layout_marginEnd="6dp"
+                >
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
                     android:id="@+id/newsfeedButton"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="220dp"
-                    android:src="@drawable/dormant_newsfeed_button"/>
-                <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginLeft="0dp"
+
+                    android:layout_marginTop="220dp"
+                    android:padding="10dp"
+                    android:src="@drawable/dormant_newsfeed_button" />
+
+                <ImageView
                     android:id="@+id/research_button"
-                    android:layout_marginTop="220dp"
-                    android:src="@drawable/dormant_research_button"/>
-                <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:padding="10dp"
+                    android:src="@drawable/dormant_research_button" />
+
+                <ImageView
                     android:id="@+id/contact_button"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginTop="220dp"
-                    android:src="@drawable/dormant_contact_button"/>
-                <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:id="@+id/workex_button"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="220dp"
-                    android:src="@drawable/dormant_workex_button"/>
+                    android:padding="10dp"
+                    android:src="@drawable/dormant_contact_button" />
+
+                <ImageView
+                    android:id="@+id/workex_button"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="220dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="10dp"
+                    android:src="@drawable/dormant_workex_button" />
 
             </LinearLayout>
 
@@ -163,14 +176,14 @@
             />
 
 
-
-
             <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_below="@id/dataframe"
                 android:id="@+id/club_recy"
-                android:background="#000"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button_frame"
+                android:layout_marginTop="-10dp"
+                android:background="#000033"
+                >
 
             </android.support.v7.widget.RecyclerView>
         </RelativeLayout>

@@ -17,7 +17,7 @@
         android:background="@color/lightgrey"
         >
 
-        <EditText
+        <TextView
             android:id="@+id/text1"
             android:layout_width="50dp"
             android:layout_height="match_parent"
@@ -30,7 +30,7 @@
 
             />
 
-        <EditText
+        <TextView
             android:id="@+id/grades_name"
             android:layout_width="80dp"
             android:layout_height="match_parent"
@@ -46,7 +46,7 @@
             android:background="@drawable/round_light_grey"
 
             />
-        <EditText
+        <TextView
             android:id="@+id/lower_limit"
             android:layout_width="50dp"
             android:layout_height="match_parent"
@@ -61,7 +61,7 @@
             android:background="@drawable/transparent_light_b"
 
             />
-        <EditText
+        <TextView
             android:id="@+id/upper_limit"
             android:layout_width="50dp"
             android:layout_height="match_parent"
@@ -75,7 +75,7 @@
             android:paddingBottom="2dp"
             android:background="@drawable/transparent_light_b"
             />
-        <EditText
+        <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:checked="false"
+            android:checked="true"
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"

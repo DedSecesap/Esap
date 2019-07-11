@@ -3,17 +3,20 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:background="#0f0f0d"
+    android:background="@color/lightgrey"
     android:layout_height="wrap_content">
 
     <TextView
-        android:layout_width="match_parent"
-        android:textColor="#95f033"
-        android:textSize="25sp"
-        android:text="Code/Name"
-        android:layout_margin="30dp"
         android:id="@+id/NameCode"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="3dp"
+        android:text="Code/Name"
+        android:textColor="#000033"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="wrap_content" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
