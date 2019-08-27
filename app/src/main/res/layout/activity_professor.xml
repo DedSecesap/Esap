@@ -83,12 +83,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.9557292" />
+
         <android.support.constraint.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_begin="165dp" />
 
         <TextView
             android:id="@+id/view"
@@ -96,7 +97,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:text="Designation :"
             android:textColor="#000033"
             android:textSize="20sp"
@@ -113,7 +114,7 @@
             android:gravity="center"
             android:text="Designation"
             android:textSize="20sp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:textColor="#000033"
             android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/imageView"
@@ -155,7 +156,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Branch"
             android:textColor="#000033"
@@ -165,6 +166,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/contact_No"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="9131932971"
+            android:textColor="@color/Black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            tools:layout_editor_absoluteY="165dp" />
 
 
 

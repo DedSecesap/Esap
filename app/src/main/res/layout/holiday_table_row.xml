@@ -6,44 +6,47 @@
     android:padding="1dp"
     android:background="@color/lightgrey"
     android:layout_height="wrap_content">
-<LinearLayout
-    android:layout_width="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:layout_column="1"
-            android:layout_marginStart="0dp"
-            android:padding="2dp"
-            android:background="@drawable/transparent_l_grey"
-            android:text="      DATE       "
-            android:textColor="#000033"
-            android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="1dp" />
-
-        <TextView
-            android:id="@+id/occasion"
-
-            android:layout_width="220dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_marginStart="0dp"
-            android:padding="2dp"
-            android:text="        OCCASIONS        "
-            android:textColor="#000033"
-            android:textSize="25sp"
-            android:background="@drawable/transparent_l_grey"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_column="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/round_db"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="      DATE       "
+                    android:textColor="#000033"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/occasion"
 
 
-</LinearLayout>
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_margin="8dp"
+
+                    android:background="@drawable/transparent_light_b"
+                    android:padding="4dp"
+                    android:text="        OCCASIONS        "
+                    android:textColor="#000033"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

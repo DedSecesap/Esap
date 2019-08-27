@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="2dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:orientation="horizontal"
         >
@@ -18,7 +19,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/round_button_lb"
             android:text="NO"
             android:textColor="@color/Black"
@@ -37,7 +38,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:textSize="15dp"
             android:textColor="@color/Black"
             android:text="LL"
@@ -48,7 +49,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:textSize="15dp"
             android:text="UL"
             android:gravity="center"
@@ -58,7 +59,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:textSize="15dp"
             android:text="Avg S"
             android:gravity="center"

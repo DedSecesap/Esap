@@ -46,11 +46,11 @@
 
 
                     <include
+                        android:id="@+id/menu_header"
+                        layout="@layout/waiter_appbar_orders"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/menu_header"
-                        layout="@layout/waiter_appbar_orders" />
+                        android:layout_gravity="center_vertical" />
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="25dp"
@@ -80,7 +80,7 @@
                 android:layout_height="210dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:layout_marginLeft="30dp"
@@ -104,9 +104,11 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginStart="260dp"
+
+
+                android:layout_marginStart="150dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="51dp"
+                android:layout_toEndOf="@+id/RollText"
                 android:background="@drawable/profile_photo" />
             <TextView
                 android:id="@+id/Branchtext"
@@ -124,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:orientation="horizontal"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="6dp"
                 >
 
@@ -138,7 +141,7 @@
 
                 <ImageView
                     android:id="@+id/research_button"
-                    android:layout_width="100dp"
+                    android:layout_width="90dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="220dp"
@@ -187,6 +190,8 @@
 
             </android.support.v7.widget.RecyclerView>
         </RelativeLayout>
+
+
 
     </android.support.constraint.ConstraintLayout>
 

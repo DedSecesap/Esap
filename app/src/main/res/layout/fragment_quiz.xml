@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="SUBMIT"
+        android:textSize="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2"
+        tools:layout_editor_absoluteX="280dp"
+        android:background="@drawable/round_darkgrey"
+        tools:ignore="MissingConstraints" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="401dp"
+        android:layout_height="288dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/text_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="question"
+            android:textColor="@color/Black"
+            android:textSize="15dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="393dp"
+        android:layout_height="251dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:layout_editor_absoluteX="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ans_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <EditText
+            android:id="@+id/ans_fill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="FILL IN THE BLANK"
+            android:textColor="#000033"
+            android:textSize="15dp"
+            android:visibility="gone" />
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

@@ -8,7 +8,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:textColor="#000033"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:id="@+id/nameeee"
         android:text="Jborjirosnsdndsndsodndsnsd"

@@ -95,7 +95,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/clubName"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:text="Name Of Club"
             app:layout_constraintTop_toBottomOf="@id/appbare_frams"
             android:gravity="center"
@@ -185,8 +186,11 @@
                 android:id="@+id/textViewDescr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:text="BigDescription"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
                android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -256,8 +260,9 @@
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_db"
-                android:padding="2dp">
+                android:background="@drawable/round_button_lb"
+                android:padding="2dp"
+                >
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
@@ -289,7 +294,7 @@
                 android:layout_gravity="center"
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_db">
+                android:background="@drawable/round_button_lb">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>

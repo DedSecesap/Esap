@@ -1,45 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CourseFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_width="407dp"
+        android:layout_height="648dp"
+        android:background="#80DDE9F0"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-56dp">
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="41dp">
 
-        <TextView
-            android:id="@+id/course_code"
-            android:layout_width="100dp"
+        <ToggleButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
+            android:textColor="#000033"
+            android:textOff="OFF"
+            android:textOn="ON" />
 
+        <TextView
+            android:id="@+id/Student_rollno"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="48dp"
+
+
+            android:layout_marginEnd="270dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/round_button_lb"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:padding="2dp"
-            android:text="cousre code"
+            android:text="ROLL NO."
             android:textColor="@color/Black"
-            android:textSize="18dp" />
+            android:textSize="16dp" />
 
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/course_name"
+            android:layout_below="@+id/name_student"
 
 
             android:layout_alignStart="@+id/course_name"
@@ -52,15 +61,15 @@
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/course_name"
-            android:layout_width="291dp"
+            android:id="@+id/name_student"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
 
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="8dp"
 
 
             android:layout_marginEnd="-35dp"
@@ -68,7 +77,7 @@
             android:background="@drawable/round_button_lb"
             android:gravity="center_vertical"
             android:padding="2dp"
-            android:text="Cousre name"
+            android:text="STUDENT NAME"
             android:textColor="@color/Black"
             android:textSize="18dp" />
 
@@ -385,35 +394,7 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/round_light_blue"
-        android:gravity="center"
-        android:text="Branch"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/branch_recy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/round_button_lb"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="185dp">
-
-    </android.support.v7.widget.RecyclerView>
 
     <Button
         android:id="@+id/see_distri"
@@ -431,9 +412,4 @@
 
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />
-
 </android.support.constraint.ConstraintLayout>
-
-
-
-

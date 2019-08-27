@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_db">
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/card_Course"
+    >
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:padding="2dp"
+        android:text="course name"
+        android:textColor="@color/Black"
+        android:textSize="15dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="190dp"
+        android:padding="2dp"
+        android:text="Taken"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="270dp"
+        android:padding="2dp"
+        android:text="Not taken"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Timing"
+        android:layout_marginStart="120dp"
+        android:textColor="@color/Black"
+        />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/classtime1"
+        android:padding="2dp"
+        android:gravity="center"
+        android:textColor="@color/Black"
+        android:background="@drawable/lightblue_box"
+        android:layout_marginStart="170dp"
+        android:text="12:40"
+        />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/classtime2"
+        android:padding="2dp"
+        android:gravity="center"
+        android:textColor="@color/Black"
+        android:background="@drawable/lightblue_box"
+        android:layout_marginStart="230dp"
+        android:text="12:40"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/round_db"
+        android:layout_gravity="bottom">
+
+    </View>
+</android.support.v7.widget.CardView>
+ </android.support.constraint.ConstraintLayout>

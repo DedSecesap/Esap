@@ -2,7 +2,7 @@ package com.example.apple.myapplication;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.provider.ContactsContract;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,7 +12,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,8 +32,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import io.grpc.MethodDescriptor;
 
 public class InGeneralAcademicActivity extends AppCompatActivity implements MechProfFragment.OnFragmentInteractionListener,
 RecyclerViewFragment.OnFragmentInteractionListener,ComputerScienceProf.OnFragmentInteractionListener,SendLetterFragment.OnFragmentInteractionListener,
@@ -324,8 +321,9 @@ GradesFragment.OnFragmentInteractionListener,EventFragment.OnFragmentInteraction
             viewPager.setAdapter(sectionPageAdapter);
         }
 
-        else if(type.toLowerCase().contains("Pointer"))
+        else if(type.toLowerCase().contains("pointer"))
         {
+
             textView.setText("Grades");
             GradesFragment gradesFragment =new GradesFragment();
             gradesFragment.setType("sp");

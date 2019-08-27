@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4F4F4F"
+    android:background="@color/lightgrey"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".PlannerActivity"
     tools:showIn="@layout/activity_planner"   >
@@ -32,7 +32,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="top"
-                        android:background="#4F4F4F"
+                        android:background="#003366"
                         app:contentInsetEnd="0dp"
                         app:contentInsetLeft="0dp"
                         app:contentInsetRight="0dp"
@@ -76,13 +76,13 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4F4F4F">
+            android:background="#003366">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabTextColor="#FBFA09"
+                app:tabTextColor="#33ccff"
                 app:tabSelectedTextColor="#fff"
                 app:tabGravity="fill"
                 app:tabMode="scrollable"/>

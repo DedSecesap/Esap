@@ -15,56 +15,59 @@
         android:padding="2dp"
         android:background="@color/lightgrey"/>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:orientation="horizontal"
         android:background="@color/lightgrey"
         >
 
         <ImageView
             android:id="@+id/addMessageImageView"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:padding="4dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
             android:background="@color/lightgrey"
+            android:backgroundTint="@color/lightgrey"
+            android:padding="2dp"
             ads:srcCompat="@drawable/ic_add_black_24dp"
-            android:backgroundTint="@color/lightgrey"/>
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
 
         <EditText
             android:id="@+id/messageEditText"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="46dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
             android:layout_weight="1"
-            android:layout_marginBottom="2dp"
             android:background="@drawable/round_button_lb"
-            android:paddingLeft="2dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="2dp"
-            android:paddingRight="4dp" />
+            android:padding="2dp"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/addMessageImageView"
+            tools:layout_editor_absoluteY="2dp" />
 
         <ImageButton
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:id="@+id/sendButton"
-            android:layout_width="35dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:enabled="false"
-            android:text="SEND"
-            android:layout_marginBottom="4dp"
-            android:textColor="#000033"
-            android:src="@drawable/send_button"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:background="@color/lightgrey"
+            android:enabled="false"
 
-            />
+            android:src="@drawable/send_button"
+            android:text="SEND"
+            android:textColor="#000033"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/messageEditText"
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="MissingConstraints" />
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

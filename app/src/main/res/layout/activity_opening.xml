@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/landingpage"
+    android:background="@color/lightgrey"
     tools:context=".OpeningActivity">
 
     <ScrollView
@@ -26,7 +26,7 @@
                 style="@style/Today"
                 android:text="Today"
                 android:textSize="17sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="185dp" />
 
@@ -36,15 +36,16 @@
                 android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
+
             <TextView
+                style="@style/Today"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:width="40px"
                 android:gravity="center"
-                style="@style/Today"
                 android:text="Recent Announcements"
-                android:textSize="17sp"
-                android:layout_marginTop="20dp"
-                android:layout_height="wrap_content" />
+                android:textSize="17sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/announcement_recy"
@@ -66,7 +67,7 @@
                 android:layout_marginEnd="20dp"
                 android:text="Show All Announcements"
                 android:textSize="13sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:layout_width="match_parent"
@@ -75,17 +76,17 @@
                 style="@style/Today"
                 android:text="Happenings in college"
                 android:textSize="17sp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/events_recy"
-                android:visibility="visible"
-                android:layout_width="372dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="5dp">
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="2dp"
+                android:visibility="visible">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
-        android:background="#33ccff"
+        android:background="@color/white"
         app:itemIconTint="#003366"
         app:itemTextColor="#000033"
         app:layout_constraintBottom_toBottomOf="parent"

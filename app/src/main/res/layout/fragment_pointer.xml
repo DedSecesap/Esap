@@ -8,14 +8,22 @@
 
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_height="200dip"
-
+        android:layout_marginTop="25dp"
         android:id="@+id/line_graph"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:src="@drawable/bar_graph"
+        android:layout_marginTop="5dp"
+        android:visibility="visible"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:textSize="30sp"
+        android:visibility="gone"
         android:textColor="#ab1014"
         android:text="This portion will be active next Semester onwards"
         android:layout_height="wrap_content" />

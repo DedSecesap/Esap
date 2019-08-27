@@ -38,13 +38,14 @@
             android:id="@+id/imageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/events_img"
             android:tintMode="src_in"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
-            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintHorizontal_bias="0.375"
 
-            app:srcCompat="@drawable/events_img" />
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:srcCompat="@drawable/events_img"
+            tools:layout_editor_absoluteY="16dp" />
 
         <TextView
 
@@ -99,14 +100,16 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:text="ShortDescription"
             android:textColor="#000033"
             android:textSize="15sp"
+            android:gravity="center"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
@@ -128,10 +131,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+
                 android:gravity="center"
                 android:text="BigDescription"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
+                android:layout_marginBottom="5dp"
 
                 />
 
@@ -144,7 +149,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="Prof. in charge :"
             android:textColor="#000033"
             android:textSize="25sp"
@@ -159,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="6dp"
             android:gravity="center"
             android:text="Designation"
             android:textColor="#000033"
@@ -200,7 +205,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:background="@drawable/round_light_blue"
+                android:background="@drawable/round_button_lb"
                 android:scrollbars="vertical"
                 android:elevation="5dp"
                 android:padding="5dp">
@@ -237,7 +242,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:background="@drawable/round_light_blue"
+                android:background="@drawable/round_button_lb"
                 android:scrollbars="horizontal"
                 android:elevation="5dp"
                 android:padding="5dp">

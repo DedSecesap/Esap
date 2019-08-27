@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="370dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/round_button_lb"
+    android:background="@drawable/round_button"
     android:layout_height="260dp"
+    android:layout_margin="10dp"
     app:layout_constraintCircleRadius="4dp"
-    android:elevation="1dp">
+    android:elevation="1dp"
+    android:layout_gravity="center_horizontal">
 
 
     <TextView
@@ -48,7 +50,7 @@
         android:padding="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView6"
-        android:background="@drawable/transparent_light_b"
+
 
         />
 

@@ -107,7 +107,7 @@
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             />
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
@@ -125,34 +125,37 @@
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/transparent_l_grey"
                 />
+
             <TextView
                 android:id="@+id/course_name"
-                android:layout_width="200dp"
+                android:layout_width="181dp"
                 android:layout_height="40dp"
-                android:text="Course Name"
-                android:textSize="20sp"
-                android:textColor="@color/Black"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:background="@drawable/transparent_l_grey"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/course_code"
 
-                />
+                android:background="@drawable/transparent_l_grey"
+                android:gravity="center"
+                android:text="Course Name"
+                android:textAlignment="center"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/gradeview"
-                android:layout_width="match_parent"
+                android:layout_width="80dp"
                 android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/transparent_l_grey"
                 android:gravity="center"
                 android:text="Grade"
                 android:textAlignment="center"
                 android:textColor="@color/Black"
-                android:textSize="20sp"
-                android:background="@drawable/transparent_l_grey"
-                android:layout_marginRight="5dp"
-                />
+                android:textSize="20sp" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </FrameLayout>
 

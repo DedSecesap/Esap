@@ -13,7 +13,7 @@
     android:textSize="22sp"
        android:id="@+id/title"
        android:text="Hello World"
-    android:textColor="#33ccff"
+    android:textColor="@color/white"
     android:letterSpacing="-0.02"
     android:layout_gravity="center"
        >

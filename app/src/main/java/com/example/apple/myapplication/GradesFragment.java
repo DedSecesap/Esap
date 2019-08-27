@@ -59,7 +59,7 @@ public class GradesFragment extends Fragment {
         // Inflate the layout for this fragment
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         View view=inflater.inflate(R.layout.fragment_pointer, container, false);
-        bar_Graph = (GraphView) view.findViewById(R.id.line_graph);
+        bar_Graph = view.findViewById(R.id.line_graph);
         LineGraphSeries<DataPoint> barGraph_Data = null;
         DataPoint[] dataPoint;
         int i=0;
@@ -71,6 +71,8 @@ public class GradesFragment extends Fragment {
 
         dataPoint[1] = new DataPoint(2,8.06);
         dataPoint[2] = new DataPoint(3,8.01);
+            barGraph_Data = new LineGraphSeries<>(dataPoint);
+            bar_Graph.addSeries(barGraph_Data);
 
         }
         else

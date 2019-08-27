@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="4dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/messengerImageView"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="2dp"
+        android:paddingLeft="2dp"
+        android:src="@drawable/ic_account_circle_black_36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout8" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent">
+        android:id="@+id/linearLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:background="@drawable/round_itemtext"
+        android:padding="5dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/messengerImageView"
+        tools:ignore="MissingConstraints">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/messengerImageView"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:paddingLeft="2dp"
-            android:layout_gravity="bottom"
-            android:elevation="4dp"
-            android:src="@drawable/ic_account_circle_black_36dp" />
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="hii this text is for review purpose"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/Black"
+            android:textSize="20dp"
+            android:textStyle="italic"/>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/messengerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:text="manish ubnare"
+            android:paddingLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/darkgrey"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:id="@+id/messageImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/round_button_lb"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:elevation="3dp">
-
-            <TextView
-                android:id="@+id/messageTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:textSize="10dp"
-                android:textColor="#000033"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/messengerTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkgrey"
-                android:layout_weight="0"
-                android:textSize="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <ImageView
-                android:id="@+id/messageImageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:background="@color/colorPrimary"
-                android:scaleType="fitCenter" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitCenter" />
 
     </LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

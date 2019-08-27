@@ -22,7 +22,7 @@ public class AnnouncementActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         recyclerView=findViewById(R.id.announcement_recy);
         announcementModels=new ArrayList<>();
-        announcementModels.add(new AnnouncementModel("Dummy Announcement","This announcement is for the purpose of setting layout accordingly to avoid furthur delay","Shambhav Tyagi"));
+        announcementModels.add(new AnnouncementModel("Dummy Announcement","For Material science(MO-101) students sir is preparing a quiz.Quiz time will be inform you soon.","Shambhav Tyagi"));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
         AnnouncementAdapter announcementAdapter=new AnnouncementAdapter(announcementModels);
         recyclerView.setAdapter(announcementAdapter);

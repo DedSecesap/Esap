@@ -10,6 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
     <com.alamkanak.weekview.WeekView
         android:id="@+id/weekView"
+        android:background="@color/lightgrey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:eventTextColor="@android:color/white"

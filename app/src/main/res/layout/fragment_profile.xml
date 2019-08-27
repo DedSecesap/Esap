@@ -3,34 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#33ccff"
+    android:background="@color/lightgrey"
     android:layout_height="match_parent"
     tools:context=".PagerStripFragment">
+
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
         android:id="@+id/root_view"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="757dp"
+        android:visibility="visible">
 
 
-
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabTextColor="#003366"
-                app:tabSelectedTextColor="@color/white"
-                app:tabGravity="fill"
-                app:tabMode="scrollable"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="#003366" />
 
         <android.support.v4.view.ViewPager
-            android:layout_marginTop="?attr/actionBarSize"
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        </android.support.v4.view.ViewPager>
+            android:layout_height="748dp"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/lightgrey"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"> </android.support.v4.view.ViewPager>
     </FrameLayout>
 
     <android.support.v7.widget.RecyclerView

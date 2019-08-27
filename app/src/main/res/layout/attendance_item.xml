@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="2dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/lightblue_box">
+
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="NO."
+        android:textSize="12dp"
+        android:gravity="center"
+        android:textColor="@color/Black"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:padding="2dp"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="12dp"
+        android:layout_marginLeft="5dp"
+
+        android:padding="3dp"
+        android:textColor="@color/Black"
+
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="12dp"
+
+        android:textColor="@color/Black"
+        android:layout_marginLeft="5dp"
+        android:padding="3dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+       />
+
+     <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginLeft="5dp"
+         android:layout_marginTop="2dp"
+         android:layout_marginBottom="2dp"
+        />
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>

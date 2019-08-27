@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="4dp"
     android:background="@color/lightgrey">
@@ -11,17 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="0dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:orientation="horizontal"
         android:background="@color/lightgrey"
-        >
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/text1"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/round_button_lb"
             android:textColor="@color/Black"
             android:textSize="15sp"
@@ -51,7 +53,7 @@
             android:id="@+id/lower_limit"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/transparent_light_b"
             android:gravity="center"
@@ -66,7 +68,7 @@
             android:id="@+id/upper_limit"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:textSize="15sp"
             android:text="UL"
             android:gravity="center"
@@ -80,7 +82,7 @@
             android:id="@+id/avg_students"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:textSize="15sp"
             android:text="Avg S"
             android:gravity="center"
@@ -108,4 +110,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -73,12 +73,12 @@ public class MyMarksFragment extends Fragment {
         List<MyMarksModel> myMarksModels=new ArrayList<>();
         recyclerView=view.findViewById(R.id.marks_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
-        myMarksModels.add(new MyMarksModel("Name of Course","Code","77"));
+        myMarksModels.add(new MyMarksModel("Material science","MO-201","77"));
+        myMarksModels.add(new MyMarksModel("Pharmaceutical analysis","PH-201","60"));
+        myMarksModels.add(new MyMarksModel("Bio-chemistry","BO-201","70"));
+        myMarksModels.add(new MyMarksModel("Eng Mathematics","MA-101","55"));
+        myMarksModels.add(new MyMarksModel("Probability","MA-201","90"));
+        myMarksModels.add(new MyMarksModel("Human physiology","H-104","95"));
         MyMarksAdapter myMarksAdapter=new MyMarksAdapter(myMarksModels);
         recyclerView.setAdapter(myMarksAdapter);
 
